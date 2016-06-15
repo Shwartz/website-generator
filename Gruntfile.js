@@ -13,10 +13,7 @@ module.exports = function (grunt) {
     var path = grunt.cli.tasks[0]; //getting global task, not --target
     console.log('LOG: Grunt current task: ' + grunt.cli.tasks[0]);
     var pathToLocalWeb = 'http://generator.local/';
-
-    grunt.config.merge({
-        http: {}
-    });
+    var tasks = [];
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -62,49 +59,35 @@ module.exports = function (grunt) {
         console.log('yo');
 
         var src = ['source/files/**/*.php', '!source/files/inc/**'];
-        
         var pages = grunt.file.expand({cwd: ''}, src);
 
-        grunt.log.debug(pages);
         console.log('Pages: ', pages);
 
         for (var i = 0; i < pages.length; i++) {
             var http = {};
             var arrSegments = pages[i].split('/');
             var pageName = arrSegments[arrSegments.length - 1];
-
+            
             console.log('url: ', pages[i]);
-            console.log('dest: ', 'dev/' + pageName);
-            var config = {
-                http: {
-                    dev: {
-                        options: {
-                            url: pathToLocalWeb + pages[i]
-                        },
-                        dest: 'dev/' + arrSegments[arrSegments.length -1]
-                    }
-                }
+            console.log('dest: ', 'dist/' + pageName);
+
+            //creating http tasks with unique name
+            http[pageName + '-' + i] = {
+                options: {
+                    url: pathToLocalWeb + pages[i]
+                },
+                dest: 'dist/' + pageName.replace('.php', '.html')
             };
-            grunt.config.merge(config);
+            console.log('http: ', http);
+            
+            grunt.config.merge({http: http});
+            tasks.push('http' + ':' + http[pageName-i]);
         }
-        
-        /*var config = {
-            http: {
-                dev: {
-                    options: {
-                        url: pathToLocalWeb + 'test.php'
-                    },
-                    dest: 'dev/test.html'
-                }
-            }
-        };
-        grunt.config.merge(config);*/
-        
     });
 
 
 
-    grunt.registerTask('test', [
+    grunt.registerTask('default', [
         'createPages',
         'http'
     ]);
