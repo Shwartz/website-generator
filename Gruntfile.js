@@ -56,24 +56,17 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            htmldist: {
+            phpToDevFile: {
                 expand: true,
-                cwd: 'src/pages/',
                 src: ['*.php'],
-                dest: path + '/',
+                dest: 'dev/',
                 options: {
                     process: function(content, srcpath) {
-                        content = content.replace(/@@gruntDataMain/, '');
-                        content = content.replace(/@@gruntDataPath/, 'scripts/app.min.js');
+                        //content = content.replace(/@{gruntCSSPath}/, 'dev"');
+                        //content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
                         return content;
                     }
                 }
-            },
-            assets: {
-                expand: true,
-                cwd: 'src/',
-                src: ['assets/**'],
-                dest: path + '/'
             }
         },
         watch: {
@@ -87,6 +80,13 @@ module.exports = function (grunt) {
             }
         }
     });
+
+    // On watch events configure jshint:all to only run on changed file
+    grunt.event.on('watch', function(action, filepath) {
+        console.log('GRUNT WATCH ON: filepath: ', filepath);
+        grunt.config('copy:phpToDevFile', filepath);
+    });
+
 
     grunt.task.registerTask('generateWebsite', 'description', function (){
         console.log('yo');
