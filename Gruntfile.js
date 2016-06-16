@@ -42,6 +42,40 @@ module.exports = function (grunt) {
                 src: ['../app/webroot/css/web/']
             }
         },
+        copy: {
+            phpToDev: {
+                expand: true,
+                cwd: 'source/website/',
+                src: ['**.php'],
+                dest: 'dev/',
+                options: {
+                    process: function(content, srcpath) {
+                        content = content.replace(/@{gruntcss}/, 'data-main="scripts/setup"');
+                        content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
+                        return content;
+                    }
+                }
+            },
+            htmldist: {
+                expand: true,
+                cwd: 'src/pages/',
+                src: ['*.php'],
+                dest: path + '/',
+                options: {
+                    process: function(content, srcpath) {
+                        content = content.replace(/@@gruntDataMain/, '');
+                        content = content.replace(/@@gruntDataPath/, 'scripts/app.min.js');
+                        return content;
+                    }
+                }
+            },
+            assets: {
+                expand: true,
+                cwd: 'src/',
+                src: ['assets/**'],
+                dest: path + '/'
+            }
+        },
         watch: {
             scss: {
                 files: ['source/scss/**/*.scss'],
@@ -50,22 +84,16 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-http');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-
     grunt.task.registerTask('generateWebsite', 'description', function (){
         console.log('yo');
 
-        var src = ['source/files/**/*.php', '!source/files/inc/**'];
+        var src = ['source/website/**/*.php', '!source/website/inc/**'];
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
 
         console.log('Pages: ', arrPages);
 
-        //
+        //for each page creating http task and converting php -> html
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
@@ -88,7 +116,11 @@ module.exports = function (grunt) {
         }
     });
 
-
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-http');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', [
         'sass:dev',
