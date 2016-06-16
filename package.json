@@ -11,6 +11,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-http": "^2.0.1",
     "grunt-sass": "^1.2.0"

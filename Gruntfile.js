@@ -4,12 +4,12 @@ module.exports = function (grunt) {
      * You must have node.js on your machine: https://nodejs.org/en/download/
      * CD to /app/source/
      * Terminal: npm install
-     * grunt dev --target=dev
+     * grunt 
      * grunt dist --target=dist
      *
      * */
 
-    //var path = grunt.option('target') || 'dev';
+    
     var path = grunt.cli.tasks[0]; //getting global task, not --target
     console.log('LOG: Grunt current task: ' + grunt.cli.tasks[0]);
     var pathToLocalWeb = 'http://generator.local/';
@@ -51,30 +51,33 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-http');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-http');
 
-    grunt.task.registerTask('createPages', 'description', function (){
+    grunt.task.registerTask('generateWebsite', 'description', function (){
         console.log('yo');
 
         var src = ['source/files/**/*.php', '!source/files/inc/**'];
-        var pages = grunt.file.expand({cwd: ''}, src);
+        //array of path to pages
+        var arrPages = grunt.file.expand({cwd: ''}, src);
 
-        console.log('Pages: ', pages);
+        console.log('Pages: ', arrPages);
 
-        for (var i = 0; i < pages.length; i++) {
+        //
+        for (var i = 0; i < arrPages.length; i++) {
             var http = {};
-            var arrSegments = pages[i].split('/');
+            var arrSegments = arrPages[i].split('/');
             var pageName = arrSegments[arrSegments.length - 1];
             
-            console.log('url: ', pages[i]);
+            console.log('url: ', arrPages[i]);
             console.log('dest: ', 'dist/' + pageName);
 
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
                 options: {
-                    url: pathToLocalWeb + pages[i]
+                    url: pathToLocalWeb + arrPages[i]
                 },
                 dest: 'dist/' + pageName.replace('.php', '.html')
             };
@@ -88,14 +91,15 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', [
-        'createPages',
-        'http'
+        'sass:dev',
+        'watch'
     ]);
 
-    grunt.registerTask('dev', [
+    grunt.registerTask('dist', [
         /*'clean:env',*/
         'sass:' + path,
-        'watch'
+        'generateWebsite',
+        'http'
     ]);
 };
 
