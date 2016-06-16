@@ -15,6 +15,18 @@ module.exports = function (grunt) {
     var pathToLocalWeb = 'http://generator.local/';
     var tasks = [];
 
+    var fs = require('fs');
+    function onlyNew(target) {
+        //TODO: need check if file exist, if no -> copy over
+        return function(filepath) {
+            var src = fs.statSync(filepath).mtime.getTime();
+            var dest = grunt.config(target.concat('dest')) +
+                filepath.slice(grunt.config(target.concat('cwd')).length);
+            dest = fs.statSync(dest).mtime.getTime();
+            return src > dest;
+        }
+    }
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -42,8 +54,8 @@ module.exports = function (grunt) {
                 src: ['../app/webroot/css/web/']
             }
         },
-        copy: {//TODO: copy only changed file from watch
-            phpToDev: {
+        copy: {
+            phpAll: {
                 expand: true,
                 cwd: 'source/website/',
                 src: ['**/*.php'],
@@ -56,10 +68,12 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            phpToDevFile: {
+            phpFile: {
                 expand: true,
-                src: ['*.php'],
+                cwd: 'source/website/',
+                src: ['**/*.php'],
                 dest: 'dev/',
+                filter: onlyNew(['copy', 'phpFile']),
                 options: {
                     process: function(content, srcpath) {
                         //content = content.replace(/@{gruntCSSPath}/, 'dev"');
@@ -73,20 +87,16 @@ module.exports = function (grunt) {
             scss: {
                 files: ['source/scss/**/*.scss'],
                 tasks: ['sass:' + path]
-            },
+            },  
             devphp: {
                 files: ['source/website/**/*.php'],
-                tasks: ['copy:phpToDev']
+                tasks: ['copy:phpFile'],
+                options: {
+                    nospawn: false
+                }
             }
         }
     });
-
-    // On watch events configure jshint:all to only run on changed file
-    grunt.event.on('watch', function(action, filepath) {
-        console.log('GRUNT WATCH ON: filepath: ', filepath);
-        grunt.config('copy:phpToDevFile', filepath);
-    });
-
 
     grunt.task.registerTask('generateWebsite', 'description', function (){
         console.log('yo');
@@ -122,13 +132,14 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-http');
+    grunt.loadNpmTasks('grunt-sync');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('default', [
+    grunt.registerTask('default', 'GRUNT Running default task.', [
         'sass:dev',
-        'copy:phpToDev',
+        'copy:phpAll',
         'watch'
     ]);
 

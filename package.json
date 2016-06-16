@@ -15,5 +15,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-http": "^2.0.1",
     "grunt-sass": "^1.2.0"
+  },
+  "dependencies": {
+    "grunt-sync": "^0.5.2"
   }
 }
