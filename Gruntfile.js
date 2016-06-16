@@ -42,16 +42,16 @@ module.exports = function (grunt) {
                 src: ['../app/webroot/css/web/']
             }
         },
-        copy: {
+        copy: {//TODO: copy only changed file from watch
             phpToDev: {
                 expand: true,
                 cwd: 'source/website/',
-                src: ['**.php'],
+                src: ['**/*.php'],
                 dest: 'dev/',
                 options: {
                     process: function(content, srcpath) {
-                        content = content.replace(/@{gruntcss}/, 'data-main="scripts/setup"');
-                        content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
+                        //content = content.replace(/@{gruntCSSPath}/, 'dev"');
+                        //content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
                         return content;
                     }
                 }
