@@ -10,8 +10,8 @@ module.exports = function (grunt) {
      * */
 
     
-    var path = grunt.cli.tasks[0]; //getting global task, not --target
-    console.log('LOG: Grunt current task: ' + grunt.cli.tasks[0]);
+    var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
+    console.log('LOG: Grunt current task: ' + path);
     var pathToLocalWeb = 'http://generator.local/';
     var tasks = [];
 
@@ -80,6 +80,10 @@ module.exports = function (grunt) {
             scss: {
                 files: ['source/scss/**/*.scss'],
                 tasks: ['sass:' + path]
+            },
+            devphp: {
+                files: ['source/website/**/*.php'],
+                tasks: ['copy:phpToDev']
             }
         }
     });
@@ -124,6 +128,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'sass:dev',
+        'copy:phpToDev',
         'watch'
     ]);
 
