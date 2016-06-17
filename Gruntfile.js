@@ -17,11 +17,15 @@ module.exports = function (grunt) {
 
     var fs = require('fs');
     function onlyNew(target) {
-        //TODO: need check if file exist, if no -> copy over
         return function(filepath) {
             var src = fs.statSync(filepath).mtime.getTime();
             var dest = grunt.config(target.concat('dest')) +
                 filepath.slice(grunt.config(target.concat('cwd')).length);
+            //if there is file in source but not in dest, copy it
+            if(!grunt.file.exists(dest)) {
+                return true;
+            }
+            //if there is file in source and it is changed, copy only that file over
             dest = fs.statSync(dest).mtime.getTime();
             return src > dest;
         }
