@@ -14,8 +14,9 @@ module.exports = function (grunt) {
     console.log('LOG: Grunt current task: ' + path);
     var pathToLocalWeb = 'http://generator.local/';
     var tasks = [];
-
     var fs = require('fs');
+    
+    //Method to filter out changed or non-exist files and copy only those to DESTINATION
     function onlyNew(target) {
         return function(filepath) {
             var src = fs.statSync(filepath).mtime.getTime();
@@ -66,8 +67,7 @@ module.exports = function (grunt) {
                 dest: 'dev/',
                 options: {
                     process: function(content, srcpath) {
-                        //content = content.replace(/@{gruntCSSPath}/, 'dev"');
-                        //content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
+                        content = content.replace(/@styles@/, 'css/styles.css');
                         return content;
                     }
                 }
@@ -80,8 +80,7 @@ module.exports = function (grunt) {
                 filter: onlyNew(['copy', 'phpFile']),
                 options: {
                     process: function(content, srcpath) {
-                        //content = content.replace(/@{gruntCSSPath}/, 'dev"');
-                        //content = content.replace(/@@gruntDataPath/, 'scripts/lib/require.js');
+                        content = content.replace(/@styles@/, 'css/styles.css');
                         return content;
                     }
                 }
@@ -100,7 +99,7 @@ module.exports = function (grunt) {
     });
 
     grunt.task.registerTask('generateWebsite', 'description', function (){
-        console.log('yo');
+        console.log('Generate website');
 
         var src = ['source/website/**/*.php', '!source/website/inc/**'];
         //array of path to pages
