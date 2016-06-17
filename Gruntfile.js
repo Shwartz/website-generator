@@ -43,6 +43,7 @@ module.exports = function (grunt) {
         for (var i = 0; i < arrPages.length; i++) {
             obj[arrPages[i]] = arrPages[i];
         }
+        console.log('obj: ', obj);
         return obj;
     }
 
@@ -141,7 +142,15 @@ module.exports = function (grunt) {
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
-            var pageName = arrSegments[arrSegments.length - 1];
+            console.log('segments: ', arrSegments);
+            var subCategory = '';
+            if (arrSegments.length > 2) {
+                subCategory = arrSegments[1] + '/';
+                console.log('subCategory: ', subCategory);
+            }
+
+
+            var pageName = subCategory + '' + arrSegments[arrSegments.length - 1];
 
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
