@@ -95,9 +95,6 @@ module.exports = function (grunt) {
             devphp: {
                 files: ['source/website/**/*.php'],
                 tasks: ['copy:phpFile'],
-                options: {
-                    nospawn: false
-                }
             }
         }
     });
