@@ -7,6 +7,6 @@
 </head>
 <body>
     <?php include 'inc/_header.php' ?>
-    <div>This is content.</div>
+    <div>This is content. And this is test for HTML min</div>
 </body>
 </html>

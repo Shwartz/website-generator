@@ -11,9 +11,8 @@ module.exports = function (grunt) {
 
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
-    console.log('LOG: Grunt current task: ' + path);
+    console.log('Grunt current task: ' + path);
     var pathToLocalWeb = 'http://generator.local/';
-    var tasks = [];
     var fs = require('fs');
 
     //Method to filter out changed or non-exist files and copy only those to DESTINATION
@@ -26,7 +25,7 @@ module.exports = function (grunt) {
             if (!grunt.file.exists(dest)) {
                 return true;
             }
-            //if there is file in source and it is changed, copy only that file over
+            //if there is a file in source and it is changed, copy only that file over
             dest = fs.statSync(dest).mtime.getTime();
             return src > dest;
         }
@@ -39,13 +38,11 @@ module.exports = function (grunt) {
             'dist/test.html': 'dist/test.html'};
         */
         //array of path to pages
-        var arrPages = grunt.file.expand({cwd: ''}, [src]);
+        var arrPages = grunt.file.expand({cwd: ''}, src);
         var obj = {};
         for (var i = 0; i < arrPages.length; i++) {
             obj[arrPages[i]] = arrPages[i];
         }
-        console.log('111 getFiles: ', arrPages);
-        console.log('555 obj: ', obj);
         return obj;
     }
 
@@ -68,14 +65,14 @@ module.exports = function (grunt) {
                 files: {'dist/css/styles.min.css': 'source/scss/styles.scss'}
             }
         },
-        clean: {
+        /*clean: {
             options: {
                 force: true
             },
             dev: {
                 src: ['../app/webroot/css/web/']
             }
-        },
+        },*/
         copy: {
             phpAll: {
                 expand: true,
@@ -118,7 +115,7 @@ module.exports = function (grunt) {
         },
         minifyHtml: {
             dist: {
-                files: getFiles('dist/**/*.html')
+                files: getFiles(['dist/**/*.html'])
             }
         },
         watch: {
@@ -134,22 +131,17 @@ module.exports = function (grunt) {
     });
     
     grunt.task.registerTask('generateWebsite', 'description', function () {
-        console.log('111 Generate website');
-
+        console.log('Generating website');
+        var tasks = [];
         var src = ['_temp/**/*.php', '!_temp/inc/**'];
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
-
-        console.log('222 Pages: ', arrPages);
 
         //for each page creating http task and converting php -> html
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
             var pageName = arrSegments[arrSegments.length - 1];
-
-            console.log('333 url: ', arrPages[i]);
-            console.log('444 dest: ', '_temp/' + pageName);
 
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
@@ -158,7 +150,6 @@ module.exports = function (grunt) {
                 },
                 dest: 'dist/' + pageName.replace('.php', '.html')
             };
-            console.log('555 http: ', http);
 
             grunt.config.merge({http: http});
             tasks.push('http' + ':' + http[pageName - i]);
@@ -178,7 +169,8 @@ module.exports = function (grunt) {
         'sass:' + path,
         'copy:phpDist',
         'generateWebsite',
-        'http'
+        'http',
+        'minifyHtml:dist'
     ]);
 };
 
