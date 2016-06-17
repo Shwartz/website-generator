@@ -4,32 +4,49 @@ module.exports = function (grunt) {
      * You must have node.js on your machine: https://nodejs.org/en/download/
      * CD to /app/source/
      * Terminal: npm install
-     * grunt 
+     * grunt
      * grunt dist --target=dist
      *
      * */
 
-    
+
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('LOG: Grunt current task: ' + path);
     var pathToLocalWeb = 'http://generator.local/';
     var tasks = [];
     var fs = require('fs');
-    
+
     //Method to filter out changed or non-exist files and copy only those to DESTINATION
     function onlyNew(target) {
-        return function(filepath) {
+        return function (filepath) {
             var src = fs.statSync(filepath).mtime.getTime();
             var dest = grunt.config(target.concat('dest')) +
                 filepath.slice(grunt.config(target.concat('cwd')).length);
             //if there is file in source but not in dest, copy it
-            if(!grunt.file.exists(dest)) {
+            if (!grunt.file.exists(dest)) {
                 return true;
             }
             //if there is file in source and it is changed, copy only that file over
             dest = fs.statSync(dest).mtime.getTime();
             return src > dest;
         }
+    }
+
+    function getFiles(src) {
+        /*
+        return {
+            'dist/index.html': 'dist/index.html',
+            'dist/test.html': 'dist/test.html'};
+        */
+        //array of path to pages
+        var arrPages = grunt.file.expand({cwd: ''}, [src]);
+        var obj = {};
+        for (var i = 0; i < arrPages.length; i++) {
+            obj[arrPages[i]] = arrPages[i];
+        }
+        console.log('111 getFiles: ', arrPages);
+        console.log('555 obj: ', obj);
+        return obj;
     }
 
     grunt.initConfig({
@@ -66,7 +83,7 @@ module.exports = function (grunt) {
                 src: ['**/*.php'],
                 dest: 'dev/',
                 options: {
-                    process: function(content, srcpath) {
+                    process: function (content, srcpath) {
                         content = content.replace(/@styles@/, 'css/styles.css');
                         return content;
                     }
@@ -79,42 +96,60 @@ module.exports = function (grunt) {
                 dest: 'dev/',
                 filter: onlyNew(['copy', 'phpFile']),
                 options: {
-                    process: function(content, srcpath) {
+                    process: function (content, srcpath) {
                         content = content.replace(/@styles@/, 'css/styles.css');
                         return content;
                     }
                 }
+            },
+            phpDist: {
+                expand: true,
+                cwd: 'source/website/',
+                src: ['**/*.php'],
+                dest: '_temp/',
+                options: {
+                    process: function (content, srcpath) {
+                        content = content.replace(/@styles@/, 'css/styles.min.css');
+                        return content;
+                    }
+                }
+            }
+
+        },
+        minifyHtml: {
+            dist: {
+                files: getFiles('dist/**/*.html')
             }
         },
         watch: {
             scss: {
                 files: ['source/scss/**/*.scss'],
                 tasks: ['sass:' + path]
-            },  
+            },
             devphp: {
                 files: ['source/website/**/*.php'],
-                tasks: ['copy:phpFile'],
+                tasks: ['copy:phpFile']
             }
         }
     });
+    
+    grunt.task.registerTask('generateWebsite', 'description', function () {
+        console.log('111 Generate website');
 
-    grunt.task.registerTask('generateWebsite', 'description', function (){
-        console.log('Generate website');
-
-        var src = ['source/website/**/*.php', '!source/website/inc/**'];
+        var src = ['_temp/**/*.php', '!_temp/inc/**'];
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
 
-        console.log('Pages: ', arrPages);
+        console.log('222 Pages: ', arrPages);
 
         //for each page creating http task and converting php -> html
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
             var pageName = arrSegments[arrSegments.length - 1];
-            
-            console.log('url: ', arrPages[i]);
-            console.log('dest: ', 'dist/' + pageName);
+
+            console.log('333 url: ', arrPages[i]);
+            console.log('444 dest: ', '_temp/' + pageName);
 
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
@@ -123,19 +158,14 @@ module.exports = function (grunt) {
                 },
                 dest: 'dist/' + pageName.replace('.php', '.html')
             };
-            console.log('http: ', http);
-            
+            console.log('555 http: ', http);
+
             grunt.config.merge({http: http});
-            tasks.push('http' + ':' + http[pageName-i]);
+            tasks.push('http' + ':' + http[pageName - i]);
         }
     });
 
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-http');
-    grunt.loadNpmTasks('grunt-sync');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-clean');
+    require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
 
     grunt.registerTask('default', 'GRUNT Running default task.', [
         'sass:dev',
@@ -146,6 +176,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', [
         /*'clean:env',*/
         'sass:' + path,
+        'copy:phpDist',
         'generateWebsite',
         'http'
     ]);
