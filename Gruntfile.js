@@ -115,7 +115,7 @@ module.exports = function (grunt) {
                 filter: onlyNew(['copy', 'phpFile']),
                 options: {
                     process: function (content, srcpath) {
-                        content = content.replace(/@styles@/, 'css/styles.css');
+                        content = content.replace(/@styles@/, createCSSPath(srcpath));
                         return content;
                     }
                 }
