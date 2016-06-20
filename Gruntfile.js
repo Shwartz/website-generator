@@ -108,6 +108,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, 'css/styles.min.css');
+                        content = content.replace(/\.php"/g, '.html"');
                         return content;
                     }
                 }
