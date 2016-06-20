@@ -46,6 +46,25 @@ module.exports = function (grunt) {
         console.log('obj: ', obj);
         return obj;
     }
+    
+    function createCSSPath(srcpath) {
+        //srcpath: source/website/sub/subcat.php
+        //srcpath: source/website/test.php
+        //'css/styles.css' -> root path to CSS 
+        var pathLen = srcpath.split('/').length;
+        var cssPath = 'css/styles.css';
+        var subCategories = '';
+        if (pathLen < 4) {
+            return cssPath;
+        } else {
+            for (var i = 0; i < pathLen - 3; i++) {
+                subCategories += '../';
+                console.log('222 subCategories: ', subCategories);
+            }
+        }
+        console.log('333: ', subCategories + cssPath);
+        return subCategories + cssPath;
+    }
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -82,7 +101,8 @@ module.exports = function (grunt) {
                 dest: 'dev/',
                 options: {
                     process: function (content, srcpath) {
-                        content = content.replace(/@styles@/, 'css/styles.css');
+                        console.log('111: srcpath: ', srcpath);
+                        content = content.replace(/@styles@/, createCSSPath(srcpath));
                         return content;
                     }
                 }

@@ -6,9 +6,11 @@
     <title>home</title>
 </head>
 <body>
-<?php include '../inc/_header.php' ?>
-
-<p>subcategory</p>
-<div>This is content. And this is test for HTML min</div>
+<div id="wrap">
+    <?php include '../inc/_header.php'; ?>
+    <?php include '../inc/_menu.php'; ?>
+    <p>Sub Category</p>
+    <div>This is content. And this is test for HTML min</div>
+</div>
 </body>
 </html>
