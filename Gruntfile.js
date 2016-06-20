@@ -47,12 +47,11 @@ module.exports = function (grunt) {
         return obj;
     }
     
-    function createCSSPath(srcpath) {
+    function createPath(srcpath, cssPath) {
         //srcpath: source/website/sub/subcat.php
         //srcpath: source/website/test.php
         //'css/styles.css' -> root path to CSS 
         var pathLen = srcpath.split('/').length;
-        var cssPath = 'css/styles.css';
         var subCategories = '';
         if (pathLen < 4) {
             return cssPath;
@@ -102,7 +101,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         console.log('111: srcpath: ', srcpath);
-                        content = content.replace(/@styles@/, createCSSPath(srcpath));
+                        content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         return content;
                     }
                 }
@@ -115,7 +114,7 @@ module.exports = function (grunt) {
                 filter: onlyNew(['copy', 'phpFile']),
                 options: {
                     process: function (content, srcpath) {
-                        content = content.replace(/@styles@/, createCSSPath(srcpath));
+                        content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         return content;
                     }
                 }
@@ -127,7 +126,7 @@ module.exports = function (grunt) {
                 dest: '_temp/',
                 options: {
                     process: function (content, srcpath) {
-                        content = content.replace(/@styles@/, 'css/styles.min.css');
+                        content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
                         content = content.replace(/\.php"/g, '.html"');
                         return content;
                     }
