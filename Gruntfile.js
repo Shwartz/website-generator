@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@pathBuilder@/, createPath(srcpath, ''));
+                        content = content.replace(/@devPath@/, createPath(srcpath, 'dev'));
                         return content;
                     }
                 }
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@pathBuilder@/, createPath(srcpath, ''));
+                        content = content.replace(/@devPath@/, createPath(srcpath, 'dev'));
                         return content;
                     }
                 }
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
-                        content = content.replace(/@pathBuilder@/, createPath(srcpath, ''));
+                        content = content.replace(/@devPath@/, createPath(srcpath, 'dist'));
                         content = content.replace(/\.php"/g, '"');
                         return content;
                     }

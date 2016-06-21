@@ -1,7 +1,5 @@
-<?php
-//$pathBuilder is resolved through Grunt process
-$pathBuilder = "";
-?>
+<?php include 'inc/_settings.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
