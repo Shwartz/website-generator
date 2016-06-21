@@ -1,5 +1,7 @@
-<?php $pathBuilder = "../"; ?>
-<?php echo 'pathBuilder: '.$pathBuilder; ?>
+<?php
+//$pathBuilder is resolved through Grunt process
+$pathBuilder = "";
+?>
 
 <!DOCTYPE html>
 <html lang="en">

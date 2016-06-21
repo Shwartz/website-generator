@@ -1,13 +1,13 @@
 <?php
 //$pathBuilder is resolved through Grunt process
-$pathBuilder = "../";
+$pathBuilder = "@pathBuilder@";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="@styles@">
     <title>home</title>
 </head>
 <body>
