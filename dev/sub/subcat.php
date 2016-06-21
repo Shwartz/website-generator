@@ -1,3 +1,6 @@
+<?php $pathBuilder = "../../"; ?>
+<?php echo 'pathBuilder: '.$pathBuilder; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
