@@ -8,7 +8,9 @@ module.exports = function (grunt) {
      * grunt dist --target=dist
      *
      * */
+//https://www.npmjs.com/package/jit-grunt
 
+    require('time-grunt')(grunt);
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
@@ -33,20 +35,21 @@ module.exports = function (grunt) {
 
     function getFiles(src) {
         /*
-        return {
-            'dist/index.html': 'dist/index.html',
-            'dist/test.html': 'dist/test.html'};
-        */
+         return obj = {
+         'dist/index.html': 'dist/index.html',
+         'dist/test.html': 'dist/test.html'};
+         */
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
         var obj = {};
         for (var i = 0; i < arrPages.length; i++) {
             obj[arrPages[i]] = arrPages[i];
+
         }
         console.log('obj: ', obj);
         return obj;
     }
-    
+
     function createPath(srcpath, path) {
         //srcpath: source/website/sub/subcat.php
         //srcpath: source/website/test.php
@@ -82,14 +85,17 @@ module.exports = function (grunt) {
                 files: {'dist/css/styles.min.css': 'source/scss/styles.scss'}
             }
         },
-        /*clean: {
+        clean: {
             options: {
                 force: true
             },
             dev: {
-                src: ['../app/webroot/css/web/']
+                src: ['dev/*', '!dev/css/**']
+            },
+            dist: {
+                src: ['dist/*', '_temp/*']
             }
-        },*/
+        },
         copy: {
             phpAll: {
                 expand: true,
@@ -100,7 +106,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@devPath@/, createPath(srcpath, 'dev'));
+                        content = content.replace(/@devPath@/, 'dev');
                         return content;
                     }
                 }
@@ -114,7 +120,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@devPath@/, createPath(srcpath, 'dev'));
+                        content = content.replace(/@devPath@/, 'dev');
                         return content;
                     }
                 }
@@ -127,7 +133,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
-                        content = content.replace(/@devPath@/, createPath(srcpath, 'dist'));
+                        content = content.replace(/@devPath@/, 'dist');
                         content = content.replace(/\.php"/g, '"');
                         return content;
                     }
@@ -151,7 +157,7 @@ module.exports = function (grunt) {
             }
         }
     });
-    
+
     grunt.task.registerTask('generateWebsite', 'description', function () {
         console.log('Generating website');
         var tasks = [];
@@ -163,11 +169,11 @@ module.exports = function (grunt) {
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
-            console.log('segments: ', arrSegments);
+            console.log('LOG segments: ', arrSegments);
             var subCategory = '';
             if (arrSegments.length > 2) {
                 subCategory = arrSegments[1] + '/';
-                console.log('subCategory: ', subCategory);
+                console.log('LOG subCategory: ', subCategory);
             }
 
 
@@ -182,20 +188,22 @@ module.exports = function (grunt) {
             };
 
             grunt.config.merge({http: http});
-            tasks.push('http' + ':' + http[pageName - i]);
+            console.log('111 http[pageName - i]: ', http[pageName + '-' + i]);
+            tasks.push('http' + ':' + http[pageName + '-' + i]);
         }
     });
 
     require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
 
     grunt.registerTask('default', 'GRUNT Running default task.', [
+        'clean:dev',
         'sass:dev',
         'copy:phpAll',
         'watch'
     ]);
 
     grunt.registerTask('dist', [
-        /*'clean:env',*/
+        'clean:dist',
         'sass:' + path,
         'copy:phpDist',
         'generateWebsite',
