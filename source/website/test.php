@@ -14,5 +14,7 @@
     <p>/test.html</p>
     <div>TEST page</div>
 </div>
+
+<?php include 'inc/_footer.php'; ?>
 </body>
 </html>

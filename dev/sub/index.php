@@ -14,5 +14,7 @@
     <p>/sub/index.html</p>
     <div>This is content. And this is test for HTML min.</div>
 </div>
+
+<?php include '../inc/_footer.php'; ?>
 </body>
 </html>

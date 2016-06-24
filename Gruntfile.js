@@ -108,7 +108,6 @@ module.exports = function (grunt) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@jsScript@/, 'data-main="js/app" src="require.js"');
                         return content;
                     }
                 }
@@ -127,6 +126,19 @@ module.exports = function (grunt) {
                         return content;
                     }
                 }
+            },
+            jsAll: {
+                expand: true,
+                cwd: 'source/js/',
+                src: ['**/*.js'],
+                dest: 'dev/js/'
+            },
+            jsFile: {
+                expand: true,
+                cwd: 'source/js/',
+                src: ['**/*.js'],
+                dest: 'dev/js/',
+                filter: onlyNew(['copy', 'jsFile'])
             },
             phpDist: {
                 expand: true,
