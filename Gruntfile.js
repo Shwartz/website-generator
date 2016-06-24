@@ -9,6 +9,7 @@ module.exports = function (grunt) {
      *
      * */
 //https://www.npmjs.com/package/jit-grunt
+//https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
 
     require('time-grunt')(grunt);
 
@@ -134,7 +135,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
                         content = content.replace(/@devPath@/, 'dist');
-                        content = content.replace(/\.php"/g, '"');
+                        content = content.replace(/\.php"/g, '.html"');
                         return content;
                     }
                 }

@@ -11,7 +11,7 @@
 <div id="wrap">
     <?php include '../inc/_header.php'; ?>
     <?php include '../inc/_menu.php'; ?>
-    <p>Sub Category</p>
+    <p>/sub/index.html</p>
     <div>This is content. And this is test for HTML min.</div>
 </div>
 </body>

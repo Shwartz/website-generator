@@ -4,14 +4,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="@styles@">
     <title>home</title>
+    <link rel="stylesheet" href="@styles@">
 </head>
 <body>
 <div id="wrap">
     <?php include '../inc/_header.php'; ?>
     <?php include '../inc/_menu.php'; ?>
-    <p>Sub Category</p>
+    <p>/sub/another-in-sub.html</p>
     <div>This is content. And this is test for HTML min.</div>
 </div>
 </body>
