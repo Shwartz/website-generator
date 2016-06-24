@@ -419,10 +419,7 @@ th {
 }
 
 body {
-  background: #faf493;
-  -webkit-animation: scale 1s ease-in, slide 2s ease;
-  -moz-animation: scale 1s ease-in, slide 2s ease;
-  animation: scale 1s ease-in, slide 2s ease;
+  background: #e7fae8;
 }
 
 /*# sourceMappingURL=styles.css.map */
