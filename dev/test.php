@@ -11,6 +11,7 @@
 <div id="wrap">
     <?php include 'inc/_header.php'; ?>
     <?php include 'inc/_menu.php'; ?>
+    <p>/test.html</p>
     <div>TEST page</div>
 </div>
 </body>

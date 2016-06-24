@@ -1,9 +1,9 @@
 <?= 'test'.$webPath; ?>
 <nav>
     <ul>
-        <li><a href="<?= $webPath; ?>">Home index</a></li>
+        <li><a href="<?= $webPath; ?>index.php">Home index</a></li>
         <li><a href="<?= $webPath; ?>test.php">test</a></li>
-        <li><a href="<?= $webPath; ?>sub">subcat index</a></li>
+        <li><a href="<?= $webPath; ?>sub/index.php">subcat index</a></li>
         <li><a href="<?= $webPath; ?>sub/another-in-sub.php">more test with sub</a></li>
     </ul>
 </nav>
