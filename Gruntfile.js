@@ -5,7 +5,7 @@ module.exports = function (grunt) {
      * CD to /app/source/
      * Terminal: npm install
      * grunt
-     * grunt dist --target=dist
+     * grunt dist
      *
      * */
 //https://www.npmjs.com/package/jit-grunt
@@ -108,7 +108,8 @@ module.exports = function (grunt) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@jsScript@/, 'data-main="js/app" src="js/vendor/require.js"');
+                        content = content.replace(/@jsScriptApp@/, 'data-main="' + createPath(srcpath, 'js/app') +'"');
+
                         return content;
                     }
                 }
@@ -123,7 +124,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@jsScript@/, 'data-main="js/app" src="js/vendor/require.js"');
+                        content = content.replace(/@jsScriptApp@/, 'data-main="' + createPath(srcpath, 'js/app') +'"');
                         return content;
                     }
                 }

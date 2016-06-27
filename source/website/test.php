@@ -16,5 +16,6 @@
 </div>
 
 <?php include 'inc/_footer.php'; ?>
+<script data-main="<?= $webPath; ?>js/app" src="<?= $webPath; ?>js/vendor/require.js"></script>
 </body>
 </html>

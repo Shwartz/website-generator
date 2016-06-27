@@ -1,10 +1,10 @@
 define(
     [
-
+        'js/vendor/barba/barba.js'
     ],
-    function () {
+    function (barba) {
 
-        console.log('common:main.js');
+        console.log('common:main.js barba: ', barba);
 
     }
 );

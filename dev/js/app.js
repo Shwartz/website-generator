@@ -8,6 +8,7 @@ requirejs.config({
     baseUrl: 'js',
     paths: {
         app: 'app',
+        vendor: 'vendor',
         common: 'common/main'
     }
 });
