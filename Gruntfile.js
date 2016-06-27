@@ -169,6 +169,10 @@ module.exports = function (grunt) {
             devphp: {
                 files: ['source/website/**/*.php'],
                 tasks: ['copy:phpFile']
+            },
+            devjs: {
+                files: ['source/js/**/*.js'],
+                tasks: ['copy:jsFile']
             }
         }
     });
@@ -214,6 +218,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'sass:dev',
         'copy:phpAll',
+        'copy:jsAll',
         'watch'
     ]);
 
