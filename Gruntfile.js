@@ -129,19 +129,19 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            jsAll: {
+            /*jsAll: {
                 expand: true,
                 cwd: 'source/js/',
-                src: ['**/*.js'],
+                src: ['**!/!*.js'],
                 dest: 'dev/js/'
             },
             jsFile: {
                 expand: true,
                 cwd: 'source/js/',
-                src: ['**/*.js'],
+                src: ['**!/!*.js'],
                 dest: 'dev/js/',
                 filter: onlyNew(['copy', 'jsFile'])
-            },
+            },*/
             phpDist: {
                 expand: true,
                 cwd: 'source/website/',
@@ -163,6 +163,35 @@ module.exports = function (grunt) {
                 files: getFiles(['dist/**/*.html'])
             }
         },
+        requirejs: {
+            // global config
+            options: {
+                baseUrl: 'source/js',
+                mainConfigFile: 'source/js/app.js',
+                paths: {
+                    'vendor': 'vendor',
+                    'common': 'common/main'
+                }
+            },
+            dev: {
+                // overwrites the default config above
+                options: {
+                    dir: 'dev/js',
+                    optimize: 'none' // /* uglify2|none */
+                }
+            },
+            dist: {
+                // overwrites the default config above
+                options: {
+                    name: 'vendor/require',
+                    include: ['app'],
+                    out: "dist/js/app.min.js",
+                    optimize: 'uglify2',
+                    preserveLicenseComments: false, /*Cannot use preserveLicenseComments and generateSourceMaps together. Either explcitly set preserveLicenseComments to false (default is true) or turn off generateSourceMaps. If you want source maps with license comments, see: http://requirejs.org/docs/errors.html#sourcemapcomments*/
+                    generateSourceMaps: true
+                }
+            }
+        },
         watch: {
             scss: {
                 files: ['source/scss/**/*.scss'],
@@ -171,11 +200,11 @@ module.exports = function (grunt) {
             devphp: {
                 files: ['source/website/**/*.php'],
                 tasks: ['copy:phpFile']
-            },
+            }/*,
             devjs: {
-                files: ['source/js/**/*.js'],
+                files: ['source/js/!**!/!*.js'],
                 tasks: ['copy:jsFile']
-            }
+            }*/
         }
     });
 
@@ -220,7 +249,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'sass:dev',
         'copy:phpAll',
-        'copy:jsAll',
+        /*'copy:jsAll',*/
         'watch'
     ]);
 

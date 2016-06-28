@@ -1,6 +1,6 @@
 define(
     [
-        'js/vendor/barba/barba.js'
+        'vendor/barba/barba'
     ],
     function (barba) {
 

@@ -1,3 +1,1 @@
-<!--<script data-main="js/app" src="[path:js]"></script>-->
-
-
+<script data-main="<?= $webPath; ?>js/app" src="<?= $webPath; ?>js/require.js"></script>

@@ -5,16 +5,17 @@
 // directory.
 requirejs.config({
     urlArgs: "bust=" + (new Date()).getTime(),
-    baseUrl: 'js',
+    baseUrl: '/dev/js',
     paths: {
         app: 'app',
-        vendor: 'vendor',
         common: 'common/main'
     }
 });
 
-
+console.log('test');
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['common']);
+requirejs(['common'], function (common) {
+    console.log('common');
+});
 
