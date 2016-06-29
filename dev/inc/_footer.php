@@ -1,1 +1,2 @@
-<script data-main="<?= $webPath; ?>js/app" src="<?= $webPath; ?>js/require.js"></script>
+<!--<script data-main="/dev/js/app" src="/dev/js/require.js"></script>-->
+<!--<script src="js/app.min.js"></script>-->

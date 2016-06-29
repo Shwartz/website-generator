@@ -108,8 +108,7 @@ module.exports = function (grunt) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@jsScriptApp@/, 'data-main="' + createPath(srcpath, 'js/app') +'"');
-
+                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
                 }
@@ -124,24 +123,11 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@jsScriptApp@/, 'data-main="' + createPath(srcpath, 'js/app') +'"');
+                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
                 }
             },
-            /*jsAll: {
-                expand: true,
-                cwd: 'source/js/',
-                src: ['**!/!*.js'],
-                dest: 'dev/js/'
-            },
-            jsFile: {
-                expand: true,
-                cwd: 'source/js/',
-                src: ['**!/!*.js'],
-                dest: 'dev/js/',
-                filter: onlyNew(['copy', 'jsFile'])
-            },*/
             phpDist: {
                 expand: true,
                 cwd: 'source/website/',
@@ -151,12 +137,25 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
                         content = content.replace(/@devPath@/, 'dist');
+                        content = content.replace(/@script@/, 'src="' + createPath(srcpath, 'js/app.min.js"'));
                         content = content.replace(/\.php"/g, '.html"');
                         return content;
                     }
                 }
+            },
+            jsAll: {
+                expand: true,
+                cwd: 'source/js/',
+                src: ['**/*.js'],
+                dest: 'dev/js/'
+            },
+            jsFile: {
+                expand: true,
+                cwd: 'source/js/',
+                src: ['**/*.js'],
+                dest: 'dev/js/',
+                filter: onlyNew(['copy', 'jsFile'])
             }
-
         },
         minifyHtml: {
             dist: {
@@ -173,17 +172,10 @@ module.exports = function (grunt) {
                     'common': 'common/main'
                 }
             },
-            dev: {
-                // overwrites the default config above
-                options: {
-                    dir: 'dev/js',
-                    optimize: 'none' // /* uglify2|none */
-                }
-            },
             dist: {
                 // overwrites the default config above
                 options: {
-                    name: 'vendor/require',
+                    name: 'require',
                     include: ['app'],
                     out: "dist/js/app.min.js",
                     optimize: 'uglify2',
@@ -200,11 +192,11 @@ module.exports = function (grunt) {
             devphp: {
                 files: ['source/website/**/*.php'],
                 tasks: ['copy:phpFile']
-            }/*,
+            },
             devjs: {
-                files: ['source/js/!**!/!*.js'],
+                files: ['source/js/**/*.js'],
                 tasks: ['copy:jsFile']
-            }*/
+            }
         }
     });
 
@@ -225,10 +217,8 @@ module.exports = function (grunt) {
                 subCategory = arrSegments[1] + '/';
                 console.log('LOG subCategory: ', subCategory);
             }
-
-
+            
             var pageName = subCategory + '' + arrSegments[arrSegments.length - 1];
-
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
                 options: {
@@ -249,7 +239,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'sass:dev',
         'copy:phpAll',
-        /*'copy:jsAll',*/
+        'copy:jsAll',
         'watch'
     ]);
 
@@ -259,7 +249,8 @@ module.exports = function (grunt) {
         'copy:phpDist',
         'generateWebsite',
         'http',
-        'minifyHtml:dist'
+        'minifyHtml:dist',
+        'requirejs:dist'
     ]);
 };
 

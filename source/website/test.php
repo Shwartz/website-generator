@@ -16,5 +16,6 @@
 </div>
 
 <?php include 'inc/_footer.php'; ?>
+<script @script@></script>
 </body>
 </html>
