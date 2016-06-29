@@ -13,6 +13,13 @@
     <?php include 'inc/_menu.php'; ?>
     <p>/test.html</p>
     <div>TEST page</div>
+
+    <div id="barba-wrapper">
+        <div class="barba-container">
+            222222 ...Put here the content you wish to change between pages...
+        </div>
+    </div>
+    
 </div>
 
 <?php include 'inc/_footer.php'; ?>
