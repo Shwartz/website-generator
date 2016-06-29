@@ -16,7 +16,8 @@
 
     <div id="barba-wrapper">
         <div class="barba-container">
-            44444 ...Put here the content you wish to change between pages...
+            <p>44444 ...Put here the content you wish to change between pages...</p>
+            <p><img src="../assets/flower-4.jpg" alt=""></p>
         </div>
     </div>
 

@@ -16,11 +16,12 @@
 
     <div id="barba-wrapper">
         <div class="barba-container">
-            11111 ...Put here the content you wish to change between pages...
+            <p>11111 ...Put here the content you wish to change between pages...</p>
+            <p><img src="assets/flower-1.jpg" alt=""></p>
         </div>
     </div>
     
-</div>
+</div>  
 
 <?php include 'inc/_footer.php'; ?>
 <script data-main="/dev/js/app" src="/dev/js/require.js"></script>

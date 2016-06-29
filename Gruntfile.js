@@ -107,6 +107,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
+                        content = content.replace(/@path@/, createPath(srcpath, ''));
                         content = content.replace(/@devPath@/, 'dev');
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
@@ -123,6 +124,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@devPath@/, 'dev');
+                        content = content.replace(/@path@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
@@ -137,6 +139,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
                         content = content.replace(/@devPath@/, 'dist');
+                        content = content.replace(/@path@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'src="' + createPath(srcpath, 'js/app.min.js"'));
                         content = content.replace(/\.php"/g, '.html"');
                         return content;
@@ -155,6 +158,18 @@ module.exports = function (grunt) {
                 src: ['**/*.js'],
                 dest: 'dev/js/',
                 filter: onlyNew(['copy', 'jsFile'])
+            },
+            assetsDev: {
+                expand: true,
+                cwd: 'source/assets/',
+                src: ['**/*'],
+                dest: 'dev/assets/'
+            },
+            assetsDist: {
+                expand: true,
+                cwd: 'source/assets/',
+                src: ['**/*'],
+                dest: 'dist/assets/'
             }
         },
         minifyHtml: {
@@ -240,6 +255,7 @@ module.exports = function (grunt) {
         'sass:dev',
         'copy:phpAll',
         'copy:jsAll',
+        'copy:assetsDev',
         'watch'
     ]);
 
@@ -247,6 +263,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'sass:' + path,
         'copy:phpDist',
+        'copy:assetsDist',
         'generateWebsite',
         'http',
         'minifyHtml:dist',
