@@ -7,15 +7,20 @@ requirejs.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: '/dev/js',
     paths: {
-        app: 'app',
-        common: 'common/main'
+        common: 'common/main',
+        jquery: 'vendor/jquery',
+        barba: 'vendor/barba/barba'
+    },
+    shim: {
+        'barba': {
+            deps: ['jquery'],
+            exports: 'barba'
+        }
     }
 });
 
-console.log('test');
+console.log('test app.js');
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['common'], function (common) {
-    console.log('common');
-});
+requirejs(['common']);
 

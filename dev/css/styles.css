@@ -422,4 +422,18 @@ body {
   background: #e7fae8;
 }
 
+#barba-wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#barba-wrapper img {
+  max-width: 100%;
+}
+
+.barba-container {
+  padding: 20px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+}
+
 /*# sourceMappingURL=styles.css.map */
