@@ -194,7 +194,10 @@ module.exports = function (grunt) {
                     preserveLicenseComments: false,
                     optimize: 'uglify2', /* uglify2|none */
                     paths: {
-                        'common': 'js/common/main'
+                        'app': 'js/app',
+                        'common': 'js/common/main',
+                        'jquery': 'js/vendor/jquery',
+                        'Barba': 'js/vendor/barba/barba'
                     }
                     /*
                     baseUrl: 'source',

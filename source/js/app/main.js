@@ -1,7 +1,7 @@
 define(
     [
         'jquery',
-        'vendor/barba/barba'
+        'Barba'
     ], function ($,
                  Barba) {
         console.log("1 F:main.js", $, Barba);

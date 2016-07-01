@@ -8,12 +8,13 @@ requirejs.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: '/dev/js',
     paths: {
-        common: 'common/main',
+        app: 'app',
+        Barba: 'vendor/barba/barba',
         jquery: 'vendor/jquery'
     }
 });
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['common']);
+requirejs(['app/main']);
 
