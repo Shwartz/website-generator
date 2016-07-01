@@ -1,3 +1,6 @@
+//SETTINGS
+var pathToLocalDevelopment = 'http://generator.local/';
+
 module.exports = function (grunt) {
     /**
      * Usage:
@@ -15,7 +18,7 @@ module.exports = function (grunt) {
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
-    var pathToLocalWeb = 'http://generator.local/';
+    var pathToLocalWeb = pathToLocalDevelopment;
     var fs = require('fs');
 
     //Method to filter out changed or non-exist files and copy only those to DESTINATION
@@ -188,7 +191,7 @@ module.exports = function (grunt) {
                     out: 'dist/js/app.min.js',
                     generateSourceMaps: true,
                     preserveLicenseComments: false,
-                    optimize: 'none',
+                    optimize: 'uglify2', /* uglify2|none */
                     paths: {
                         'common': 'js/common/main'
                     }
