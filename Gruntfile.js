@@ -1,5 +1,5 @@
 //SETTINGS
-var pathToLocalDevelopment = 'http://generator.local/';
+var settings = 'http://generator.local/';
 
 module.exports = function (grunt) {
     /**
@@ -18,7 +18,8 @@ module.exports = function (grunt) {
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
-    var pathToLocalWeb = pathToLocalDevelopment;
+    //var pathToLocalWeb = settings;
+    var pathToLocalWeb = 'http://generator.local/';
     var fs = require('fs');
 
     //Method to filter out changed or non-exist files and copy only those to DESTINATION

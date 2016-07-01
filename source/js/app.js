@@ -6,15 +6,14 @@
 console.log('f:app.js');
 requirejs.config({
     urlArgs: "bust=" + (new Date()).getTime(),
-    baseUrl: 'js/',
+    baseUrl: '/dev/js',
     paths: {
         common: 'common/main',
-        jquery: 'js/vendor/jquery',
-        vendor: 'js/vendor'
+        jquery: 'vendor/jquery'
     }
 });
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['common', 'jquery']);
+requirejs(['common']);
 

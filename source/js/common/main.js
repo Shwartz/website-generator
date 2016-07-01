@@ -4,7 +4,7 @@ define(
         'vendor/barba/barba'
     ], function ($,
                  Barba) {
-        console.log("F:main.js", $, Barba);
+        console.log("1 F:main.js", $, Barba);
         Barba.Pjax.start();
 
         var FadeTransition = Barba.BaseTransition.extend({
