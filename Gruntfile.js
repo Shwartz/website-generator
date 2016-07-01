@@ -178,25 +178,28 @@ module.exports = function (grunt) {
             }
         },
         requirejs: {
-            // global config
-            options: {
-                baseUrl: 'source/js',
-                mainConfigFile: 'source/js/app.js',
-                paths: {
-                    'vendor': 'vendor',
-                    'common': 'common/main'
-                }
-            },
             dist: {
                 // overwrites the default config above
                 options: {
-                    name: 'require',
+                    baseUrl: 'source',
+                    mainConfigFile: 'source/js/app.js',
+                    name: 'js/require',
+                    out: 'dist/js/app.min.js'
+                    /*
+                    baseUrl: 'source',
+                    mainConfigFile: 'js/app.js',
+                    name: 'js/require',
                     include: ['app'],
                     out: "dist/js/app.min.js",
                     optimize: 'uglify2',
-                    preserveLicenseComments: false, /*Cannot use preserveLicenseComments and generateSourceMaps together. Either explcitly set preserveLicenseComments to false (default is true) or turn off generateSourceMaps. If you want source maps with license comments, see: http://requirejs.org/docs/errors.html#sourcemapcomments*/
-                    generateSourceMaps: true
+                    preserveLicenseComments: false,
+                    generateSourceMaps: true,
+                    paths: {
+                        'vendor': 'vendor',
+                        'common': 'common/main'
+                    }*/
                 }
+
             }
         },
         watch: {
