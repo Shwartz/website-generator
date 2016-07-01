@@ -184,7 +184,14 @@ module.exports = function (grunt) {
                     baseUrl: 'source',
                     mainConfigFile: 'source/js/app.js',
                     name: 'js/require',
-                    out: 'dist/js/app.min.js'
+                    include: 'js/app',
+                    out: 'dist/js/app.min.js',
+                    generateSourceMaps: true,
+                    preserveLicenseComments: false,
+                    optimize: 'none',
+                    paths: {
+                        'common': 'js/common/main'
+                    }
                     /*
                     baseUrl: 'source',
                     mainConfigFile: 'js/app.js',

@@ -9,11 +9,12 @@ requirejs.config({
     baseUrl: 'js/',
     paths: {
         common: 'common/main',
-        jquery: 'vendor/jquery'
+        jquery: 'js/vendor/jquery',
+        vendor: 'js/vendor'
     }
 });
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['common']);
+requirejs(['common', 'jquery']);
 
