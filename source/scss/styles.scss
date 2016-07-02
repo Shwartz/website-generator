@@ -24,27 +24,72 @@ Tags:         	black, white
 //Themes own styles here
 @import 'mixins/testMixin';
 
-.test1 {
-    color: salmon;
-}
-
-.test2 {
-    color: green;
-    margin: 11px;
-}
-
 body {
     background: #e7fae8;
 }
 
-#barba-wrapper {
-    width: 800px;
+img {max-width: 100%;}
+
+#wrap {
+    min-width: 768px;
+}
+
+nav.main {
+    width: 100%;
+    background: #333;
+
+    ul {
+        max-width: 900px;
+        margin: 0 auto;
+        height: 90px;
+        line-height: 90px;
+    }
+
+    li {
+        display: inline-block;
+        padding: 0 20px;
+    }
+
+    a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.content {
+    max-width: 1000px;
     margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 90px;
 
-    img {max-width: 100%;}
-}
-.barba-container {
-    padding: 20px;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+    .col-6 {
+        width: 50%;
+        float: left;
+        padding: 0 10px;
+    }
 }
 
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 90px;
+    line-height: 90px;
+    background: #333;
+    color: #aaa;
+
+    div {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    p {
+        margin: 0;
+    }
+}

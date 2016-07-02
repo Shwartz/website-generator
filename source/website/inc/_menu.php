@@ -1,12 +1,16 @@
-<?= 'test'.$webPath; ?>
-<nav>
+<?php // echo 'test: '.$webPath; ?>
+<nav class="main">
     <ul>
         <li><a href="<?= $webPath; ?>index.php">Home index</a></li>
-        <li><a href="<?= $webPath; ?>test.php">test</a></li>
-        <li><a href="<?= $webPath; ?>sub/index.php">subcat index</a></li>
-        <li><a href="<?= $webPath; ?>sub/another-in-sub.php">more test with sub</a></li>
+        <li><a href="<?= $webPath; ?>page-1.php">Page 1</a></li>
+        <li><a href="<?= $webPath; ?>sub/index.php">Sub Category</a></li>
+        <li><a href="<?= $webPath; ?>sub/page-2.php">Sub Category Page 2</a></li>
     </ul>
 </nav>
+
+
+
+
 
 <?php
 /**

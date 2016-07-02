@@ -32,6 +32,10 @@ body {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* HTML5 display definitions
    ========================================================================== */
 /**
@@ -409,31 +413,77 @@ th {
   color: rebeccapurple;
 }
 
-.test1 {
-  color: salmon;
-}
-
-.test2 {
-  color: green;
-  margin: 11px;
-}
-
 body {
   background: #e7fae8;
 }
 
-#barba-wrapper {
-  width: 800px;
-  margin: 0 auto;
-}
-
-#barba-wrapper img {
+img {
   max-width: 100%;
 }
 
-.barba-container {
-  padding: 20px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+#wrap {
+  min-width: 768px;
+}
+
+nav.main {
+  width: 100%;
+  background: #333;
+}
+
+nav.main ul {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 90px;
+  line-height: 90px;
+}
+
+nav.main li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+nav.main a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav.main a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 90px;
+}
+
+.content .col-6 {
+  width: 50%;
+  float: left;
+  padding: 0 10px;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 90px;
+  line-height: 90px;
+  background: #333;
+  color: #aaa;
+}
+
+footer div {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

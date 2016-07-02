@@ -281,10 +281,10 @@ module.exports = function (grunt) {
         'sass:' + path,
         'copy:phpDist',
         'copy:assetsDist',
+        'requirejs:dist',
         'generateWebsite',
         'http',
-        'minifyHtml:dist',
-        'requirejs:dist'
+        'minifyHtml:dist'
     ]);
 };
 

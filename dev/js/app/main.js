@@ -17,7 +17,7 @@ define(
 
                 // As soon the loading is finished and the old page is faded out, let's fade the new page
                 window.Promise
-                    .all([this.newContainerLoading, this.fadeOut()])
+                    .all([this.newContainerLoading, this.fadeOut(200)])
                     .then(this.fadeIn.bind(this));
             },
 
@@ -46,7 +46,7 @@ define(
                     opacity : 0
                 });
 
-                $el.animate({ opacity: 1 }, 400, function() {
+                $el.animate({ opacity: 1 }, 200, function() {
                     /**
                      * Do not forget to call .done() as soon your transition is finished!
                      * .done() will automatically remove from the DOM the old Container
