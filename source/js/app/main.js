@@ -41,18 +41,20 @@ define(
 
                 $content.css({
                     opacity : 0,
-                    left: '100%'
+                    left: '100%',
+                    position: 'absolute'
                 });
 
                 setTimeout(function () {
                     $content.css({
                         left: 0,
-                        opacity: 1
+                        opacity: 1,
+                        position: 'relative'
 
                     });
                     console.log('animation finished');
                     _this.done();
-                }, 400);
+                }, 1000);
 
 
                 /*$content.animate({ opacity: 1 }, 1000, function() {
