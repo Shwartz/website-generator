@@ -454,16 +454,41 @@ nav.main a:hover {
 }
 
 .content {
+  position: relative;
   max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
   padding-bottom: 90px;
+  opacity: 1;
 }
 
 .content .col-6 {
   width: 50%;
   float: left;
   padding: 0 10px;
+}
+
+.add3D .content {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.remove3D .content {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transform: translateX(-80%);
+  -moz-transform: translateX(-80%);
+  -ms-transform: translateX(-80%);
+  -o-transform: translateX(-80%);
+  transform: translateX(-80%);
 }
 
 footer {

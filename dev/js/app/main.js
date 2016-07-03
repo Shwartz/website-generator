@@ -17,8 +17,53 @@ define(
 
                 // As soon the loading is finished and the old page is faded out, let's fade the new page
                 window.Promise
-                    .all([this.newContainerLoading, this.fadeOut(200)])
-                    .then(this.fadeIn.bind(this));
+                    //.all([this.newContainerLoading, this.fadeOut(200)])
+                    //.then(this.fadeIn.bind(this));
+                    .all([this.newContainerLoading, this.removeOld()])
+                    .then(this.addNew.bind(this));
+            },
+
+            removeOld: function () {
+                return $(this.oldContainer).promise();
+            },
+
+            addNew: function () {
+                var _this = this;
+                var $el = $(this.newContainer);
+                var $content = $(this.newContainer).find('.content');
+                $(this.oldContainer).addClass('remove3D');
+                $(this.oldContainer).find('.content')[0].style.opacity = 0;
+
+                $el.css({
+                    visibility : 'visible',
+                    opacity : 1
+                }).addClass('add3D');
+
+                $content.css({
+                    opacity : 0,
+                    left: '100%'
+                });
+
+                setTimeout(function () {
+                    $content.css({
+                        left: 0,
+                        opacity: 1
+
+                    });
+                    console.log('animation finished');
+                    _this.done();
+                }, 300);
+
+
+                /*$content.animate({ opacity: 1 }, 1000, function() {
+                    /!**
+                     * Do not forget to call .done() as soon your transition is finished!
+                     * .done() will automatically remove from the DOM the old Container
+                     *!/
+
+                    console.log('asdf');
+                    _this.done();
+                });*/
             },
 
             fadeOut: function() {
