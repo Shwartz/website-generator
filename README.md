@@ -16,8 +16,9 @@ Converted all web into relative paths, no needs for specific settings at moment
 Open your Terminal (console) and CD to /app/
 There are two commands:
 
- - $ grunt
- - $ grunt dist
+ - `$ grunt`
+ - `$ grunt dist`
+ 
  grunt will create app/dev/ folder and you can access with 
 `http://generator.local/dev/` (replace with your path)
 
