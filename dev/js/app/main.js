@@ -39,6 +39,8 @@ define(
                 var _this = this;
                 var $el = $(this.newContainer);
 
+                console.log('el: ', $el.find('.content'));
+
                 $(this.oldContainer).hide();
 
                 $el.css({

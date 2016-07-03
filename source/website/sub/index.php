@@ -1,4 +1,4 @@
-<?php include '../inc/_settings.php'; ?>
+<?php $webPath = "@@path@@"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,9 @@
 <body>
 <div id="wrap">
     <?php include '../inc/_header.php'; ?>
-    <?php include '../inc/_menu.php'; ?>
     <div id="barba-wrapper">
         <div class="barba-container">
+            <?php include '../inc/_menu.php'; ?>
             <div class="content">
                 <div class="col-6">
                     <h1>Sub category main</h1>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-6">
                     <p>Some image:</p>
-                    <p><img src="@path@assets/flower-1.jpg" alt=""></p>
+                    <p><img src="<?= $webPath;?>assets/flower-3.jpg" alt=""></p>
                 </div>
             </div>
         </div>

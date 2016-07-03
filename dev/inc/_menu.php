@@ -1,4 +1,4 @@
-<?php // echo 'test: '.$webPath; ?>
+<?php  //echo 'Menu $webPath: '.$webPath; ?>
 <nav class="main">
     <ul>
         <li><a href="<?= $webPath; ?>index.php">Home index</a></li>

@@ -111,8 +111,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@path@/, createPath(srcpath, ''));
-                        content = content.replace(/@devPath@/, 'dev');
+                        content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
@@ -127,8 +126,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
-                        content = content.replace(/@devPath@/, 'dev');
-                        content = content.replace(/@path@/, createPath(srcpath, ''));
+                        content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
@@ -142,8 +140,7 @@ module.exports = function (grunt) {
                 options: {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
-                        content = content.replace(/@devPath@/, 'dist');
-                        content = content.replace(/@path@/, createPath(srcpath, ''));
+                        content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'src="' + createPath(srcpath, 'js/app.min.js"'));
                         content = content.replace(/\.php"/g, '.html"');
                         return content;
@@ -199,19 +196,6 @@ module.exports = function (grunt) {
                         'jquery': 'js/vendor/jquery',
                         'Barba': 'js/vendor/barba/barba'
                     }
-                    /*
-                    baseUrl: 'source',
-                    mainConfigFile: 'js/app.js',
-                    name: 'js/require',
-                    include: ['app'],
-                    out: "dist/js/app.min.js",
-                    optimize: 'uglify2',
-                    preserveLicenseComments: false,
-                    generateSourceMaps: true,
-                    paths: {
-                        'vendor': 'vendor',
-                        'common': 'common/main'
-                    }*/
                 }
 
             }
