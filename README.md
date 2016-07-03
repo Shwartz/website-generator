@@ -1,4 +1,8 @@
 # website-generator
+
+### DEMO
+http://shvarcs.com/test/micro/index.html
+
 ###Aim
 For simple "5-pagers" instead of WordPress use simple HTML site. Easy to add/remove pages, images, content. No DB needed. Once done - FTP to your server.
 
