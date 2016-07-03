@@ -52,7 +52,7 @@ define(
                     });
                     console.log('animation finished');
                     _this.done();
-                }, 300);
+                }, 400);
 
 
                 /*$content.animate({ opacity: 1 }, 1000, function() {
