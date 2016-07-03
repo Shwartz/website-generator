@@ -1,5 +1,4 @@
 //SETTINGS
-var settings = 'http://generator.local/';
 
 module.exports = function (grunt) {
     /**

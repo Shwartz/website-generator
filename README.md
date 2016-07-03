@@ -5,17 +5,8 @@ For simple "5-pagers" instead of WordPress use simple HTML site. Easy to add/rem
 ###Requirements
 Super fast, gzip, minified, auto-builds
 
-###Settings
-**app/source/website/inc/_settings.php**
-edit line `$webPath = "http://generator.local/@devPath@/";`
-
-and replace with //generator.local with your local development url.
-@devPath@ will be replaced with /dev/ or /dist/
-
-**app/Gruntfile.js**
-
-`var pathToLocalDevelopment = 'http://generator.local/';`
-Change /generator.local/ to your path to app    
+### Settings
+Converted all web into relative paths, no needs for specific settings at moment
 
 ###Grunt
 Open your Terminal (console) and CD to /app/
