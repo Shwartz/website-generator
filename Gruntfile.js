@@ -14,10 +14,11 @@ module.exports = function (grunt) {
 //https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
 
     require('time-grunt')(grunt);
-    //grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
+    grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
+    
     //var pathToLocalWeb = settings;
     var pathToLocalWeb = 'http://generator.local/';
     var fs = require('fs');
@@ -251,7 +252,9 @@ module.exports = function (grunt) {
 
     require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
 
-    grunt.registerTask('default', 'GRUNT Running default task.', [
+    grunt.registerTask('default', 'Grunt default task is empty, use $grunt', function () {});
+
+    grunt.registerTask('dev', 'GRUNT Running default task.', [
         'clean:dev',
         'sass:dev',
         'copy:phpAll',
