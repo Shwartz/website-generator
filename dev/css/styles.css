@@ -472,6 +472,16 @@ nav.main a:hover {
   padding: 0 10px;
 }
 
+.keeper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .add3D .content {
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
@@ -489,9 +499,9 @@ nav.main a:hover {
 }
 
 .remove3D .content {
-  -webkit-transition: all 400ms ease-in-out;
-  -moz-transition: all 400ms ease-in-out;
-  transition: all 400ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
   -webkit-transform: translateX(-80%);
   -moz-transform: translateX(-80%);
   -ms-transform: translateX(-80%);

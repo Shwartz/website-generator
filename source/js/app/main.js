@@ -54,7 +54,7 @@ define(
                     });
                     console.log('animation finished');
                     _this.done();
-                }, 1000);
+                }, 300);
 
 
                 /*$content.animate({ opacity: 1 }, 1000, function() {

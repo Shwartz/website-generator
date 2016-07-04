@@ -28,11 +28,7 @@ and grunt dist will create
 ###Output
 clear HTML/CSS/JS,  all minified, using pjax method to make seemless transition between pages
 
-###Input
-app/source/website - php file structure
-app/assets - images etc
-app/js
-app/scss
+### Structure
 
 
 

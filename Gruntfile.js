@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 //https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
 
     require('time-grunt')(grunt);
+    //grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
