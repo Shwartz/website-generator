@@ -12,6 +12,7 @@ module.exports = function (grunt) {
      * */
 //https://www.npmjs.com/package/jit-grunt
 //https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
+//https://github.com/sindresorhus/grunt-php
 
     require('time-grunt')(grunt);
     grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
@@ -72,6 +73,19 @@ module.exports = function (grunt) {
         return subCategories + path;
     }
 
+    function pageID(srcpath) {
+        //srcpath: source/website/sub/subcat.php
+        //srcpath: source/website/test.php
+        var arr = srcpath.split('/');
+        var string = '';
+        console.log('11111 arr: ', arr);
+        for (var i = 2; i < arr.length; i++) {
+            string += arr[i];
+        }
+        console.log('22222 string: ', string);
+        return 'test-string-' + string;
+    }
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -114,6 +128,7 @@ module.exports = function (grunt) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
+                        content = content.replace(/@@pageID@@/, pageID(srcpath));
                         return content;
                     }
                 }
@@ -172,6 +187,23 @@ module.exports = function (grunt) {
                 cwd: 'source/assets/',
                 src: ['**/*'],
                 dest: 'dist/assets/'
+            }
+        },
+        php: {
+            options: {
+                port: 5000,
+                keepalive: true,
+                open: true
+            },
+            dev: {
+                options: {
+                    base: 'dev'
+                }
+            },
+            dist: {
+                options: {
+                    base: 'dist'
+                }
             }
         },
         minifyHtml: {
@@ -270,6 +302,7 @@ module.exports = function (grunt) {
         'copy:assetsDist',
         'requirejs:dist',
         'generateWebsite',
+        'php:dist',
         'http',
         'minifyHtml:dist'
     ]);

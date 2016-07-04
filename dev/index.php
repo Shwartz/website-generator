@@ -1,4 +1,5 @@
 <?php $webPath = ""; ?>
+<?php $pageID = "test-string-index.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">

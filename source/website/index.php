@@ -1,4 +1,5 @@
 <?php $webPath = "@@path@@"; ?>
+<?php $pageID = "@@pageID@@"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
