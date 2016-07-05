@@ -68,10 +68,10 @@ module.exports = function (grunt) {
         if (pathLen > 3) {
             for (var i = 0; i < pathLen - 3; i++) {
                 subCategories += '../';
-                console.log('222 subCategories: ', subCategories);
+                //console.log('222 subCategories: ', subCategories);
             }
         }
-        console.log('333 sub + path: ', subCategories + path);
+        //console.log('333 sub + path: ', subCategories + path);
         return subCategories + path;
     }
 
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
             tempServer: {
                 options: {
                     port: 5010,
-                    keepalive: true,
+                    keepalive: false,
                     open: false,
                     base: ''
                 }
@@ -308,6 +308,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('dist', [
+        'php:tempServer',
         'clean:dist',
         'sass:' + path,
         'copy:phpDist',
