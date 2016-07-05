@@ -10,9 +10,10 @@ module.exports = function (grunt) {
      * grunt dist
      *
      * */
-//https://www.npmjs.com/package/jit-grunt
-//https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
-//https://github.com/sindresorhus/grunt-php
+// https://www.npmjs.com/package/jit-grunt
+// https://github.com/gruntjs/grunt-contrib-compress gzip assets for pub
+// https://github.com/sindresorhus/grunt-php
+// http://127.0.0.1:5000/index.php
 
     require('time-grunt')(grunt);
     grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
@@ -21,7 +22,8 @@ module.exports = function (grunt) {
     console.log('Grunt current task: ' + path);
     
     //var pathToLocalWeb = settings;
-    var pathToLocalWeb = 'http://generator.local/';
+    //var pathToLocalWeb = 'http://generator.local/';
+    var pathToLocalWeb = 'http://127.0.0.1:5010';
     var fs = require('fs');
 
     //Method to filter out changed or non-exist files and copy only those to DESTINATION
@@ -195,6 +197,14 @@ module.exports = function (grunt) {
                 keepalive: true,
                 open: true
             },
+            tempServer: {
+                options: {
+                    port: 5010,
+                    keepalive: true,
+                    open: false,
+                    base: ''
+                }
+            },
             dev: {
                 options: {
                     base: 'dev'
@@ -248,11 +258,14 @@ module.exports = function (grunt) {
             }
         }
     });
+    
 
     grunt.task.registerTask('generateWebsite', 'description', function () {
         console.log('Generating website');
+        
         var tasks = [];
         var src = ['_temp/**/*.php', '!_temp/inc/**'];
+        
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
 
@@ -260,24 +273,23 @@ module.exports = function (grunt) {
         for (var i = 0; i < arrPages.length; i++) {
             var http = {};
             var arrSegments = arrPages[i].split('/');
-            console.log('LOG segments: ', arrSegments);
             var subCategory = '';
             if (arrSegments.length > 2) {
                 subCategory = arrSegments[1] + '/';
-                console.log('LOG subCategory: ', subCategory);
+                //console.log('LOG subCategory: ', subCategory);
             }
             
             var pageName = subCategory + '' + arrSegments[arrSegments.length - 1];
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
                 options: {
-                    url: pathToLocalWeb + arrPages[i]
+                    url: pathToLocalWeb + '/' + arrPages[i]
                 },
                 dest: 'dist/' + pageName.replace('.php', '.html')
             };
 
             grunt.config.merge({http: http});
-            console.log('111 http[pageName - i]: ', http[pageName + '-' + i]);
+            //console.log('111 http[pageName - i]: ', http[pageName + '-' + i]);
             tasks.push('http' + ':' + http[pageName + '-' + i]);
         }
     });
@@ -302,7 +314,6 @@ module.exports = function (grunt) {
         'copy:assetsDist',
         'requirejs:dist',
         'generateWebsite',
-        'php:dist',
         'http',
         'minifyHtml:dist'
     ]);
