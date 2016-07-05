@@ -16,14 +16,15 @@ Converted all web into relative paths, no needs for specific settings at moment
 Open your Terminal (console) and CD to /app/
 There are two commands:
 
+ - `$ grunt php:server`
+    - Create php server and open browser `http://127.0.0.1:5000/`
+    - `http://127.0.0.1:5000/dev/` - development environment
+    - `http://127.0.0.1:5000/dist/` - distribution environment
  - `$ grunt dev`
+    - Watcher for development environment, whatever you change in `/source/` is passed to `/dev/`
  - `$ grunt dist`
+    - Deletes all the content in `/dist/` , minify all files, adds into this folder. Ready to upload to your server
  
- grunt will create app/dev/ folder and you can access with 
-`http://generator.local/dev/` (replace with your path)
-
-and grunt dist will create 
-`http://generator.local/dist/` which is ready for distribution and you can FTP to your server
 
 ###Output
 clear HTML/CSS/JS,  all minified, using pjax method to make seemless transition between pages

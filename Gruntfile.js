@@ -192,10 +192,13 @@ module.exports = function (grunt) {
             }
         },
         php: {
-            options: {
-                port: 5000,
-                keepalive: true,
-                open: true
+            server: {
+                options: {
+                    port: 5000,
+                    keepalive: true,
+                    open: true,
+                    base: ''
+                }
             },
             tempServer: {
                 options: {
@@ -203,16 +206,6 @@ module.exports = function (grunt) {
                     keepalive: false,
                     open: false,
                     base: ''
-                }
-            },
-            dev: {
-                options: {
-                    base: 'dev'
-                }
-            },
-            dist: {
-                options: {
-                    base: 'dist'
                 }
             }
         },
