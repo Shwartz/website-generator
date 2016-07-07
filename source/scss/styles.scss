@@ -92,10 +92,13 @@ nav.main {
 }
 
 .add3D {
+    nav.main {
+        display: block;
+    }
     .content {
-        @include transition(all 300ms ease-in-out);
-        @include transform(translateX(0%));
-        opacity: 1;
+        @include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
+        //@include transform(translate3d(0,0,0));
+        //opacity: 1;
     }
 }
 
@@ -104,7 +107,7 @@ nav.main {
         display: none;
     }
     .content {
-        @include transition(all 300ms ease-in-out);
+        @include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
         @include transform(translateX(-80%));
     }
 }
@@ -113,8 +116,8 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    height: 90px;
-    line-height: 90px;
+    height: 45px;
+    line-height: 45px;
     background: #333;
     color: #aaa;
 

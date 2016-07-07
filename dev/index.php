@@ -36,6 +36,53 @@
                 <div class="col-6">
                     <p>Some image:</p>
                     <p><img src="<?= $webPath; ?>assets/flower-1.jpg" alt=""></p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p><img src="<?= $webPath; ?>assets/flower-1.jpg" alt=""></p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p><img src="<?= $webPath; ?>assets/flower-1.jpg" alt=""></p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
+                    <p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
+                        marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in
+                        a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then mix
+                        with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half teaspoons of
+                        bagel in one quarter cup of tabasco. </p>
                 </div>
             </div>
         </div>
