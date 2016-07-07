@@ -1,5 +1,5 @@
 <?php $webPath = ""; ?>
-<?php $pageID = "test-string-index.php"; ?>
+<?php $pageID = "@@pageID@@"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
             <?php include 'inc/_menu.php'; ?>
             <div class="content">
                 <div class="col-6">
-                    <h1>Home page title</h1>
+                    <h1>Home page title-</h1>
                     <p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
                         creators, and small believers will always protect them. All beloved powers understand each
                         other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot hear

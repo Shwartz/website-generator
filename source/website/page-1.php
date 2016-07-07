@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>page 1</title>
     <link rel="stylesheet" href="@styles@">
 </head>
 <body>
