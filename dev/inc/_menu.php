@@ -1,13 +1,33 @@
 <?php  //echo 'Menu $webPath: '.$webPath; ?>
-<nav class="main">
+    <header class="group clearfix">
+            <span id="logoContainer">
+                                <a href="http://virtualkristine.com">
+                    <img src="http://virtualkristine.com/wp-content/uploads/2015/11/executive-service-kristine-legzdina-logo1-300x71.png" alt="Virtual assistant" />
+                </a>
+	            <a class="business-phone btn" href="tel:+44-775-7998277">
+		            <span>+44-775-7998277</span>
+	            </a>
+            </span>
+        <nav id="headerMenu">
+            <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4 current_page_item menu-item-25"><a href="<?= $webPath; ?>index.php">Home</a></li>
+                    <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="<?= $webPath; ?>services.php">Services</a></li>
+                    <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="<?= $webPath; ?>prices.php">Prices</a></li>
+                    <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="<?= $webPath; ?>testimonials.php">Testimonials</a></li>
+                    <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="<?= $webPath; ?>contact.php">Contact Me</a></li>
+                </ul></div>            </nav>
+    </header>
+
+
+
+<!--<nav class="main">
     <ul>
-        <li><a href="<?= $webPath; ?>index.php">Home index</a></li>
-        <li><a href="<?= $webPath; ?>page-1.php">Page 1</a></li>
-        <li><a href="<?= $webPath; ?>sub/index.php">Sub Category</a></li>
-        <li><a href="<?= $webPath; ?>sub/page-2.php">Sub Category Page 2</a></li>
+        <li><a href="<?/*= $webPath; */?>index.php">Home index</a></li>
+        <li><a href="<?/*= $webPath; */?>page-1.php">Page 1</a></li>
+        <li><a href="<?/*= $webPath; */?>sub/index.php">Sub Category</a></li>
+        <li><a href="<?/*= $webPath; */?>sub/page-2.php">Sub Category Page 2</a></li>
     </ul>
 </nav>
-
+-->
 
 
 
