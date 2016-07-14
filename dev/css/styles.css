@@ -457,6 +457,10 @@ nav.main a:hover {
   text-decoration: underline;
 }
 
+nav.main li.current a {
+  color: #fff7b9;
+}
+
 .content {
   position: relative;
   max-width: 1000px;

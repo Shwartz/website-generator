@@ -1,6 +1,9 @@
-<?php $webPath = ""; ?>
-<?php $pageID = "@@pageID@@"; ?>
-
+<?php
+$webPath = "";
+$pageID = "index";
+/*echo 'test $pageID: ' . $pageID . '<br>';
+echo 'test $webPath: ' . $webPath;*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

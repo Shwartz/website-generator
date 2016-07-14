@@ -78,14 +78,20 @@ module.exports = function (grunt) {
     function pageID(srcpath) {
         //srcpath: source/website/sub/subcat.php
         //srcpath: source/website/test.php
+        /**
+         * @type {Array}
+         * return string 'category/pageName'
+         */
         var arr = srcpath.split('/');
         var string = '';
         console.log('11111 arr: ', arr);
         for (var i = 2; i < arr.length; i++) {
             string += arr[i];
         }
+        //TODO: remove .php from string
         console.log('22222 string: ', string);
-        return 'test-string-' + string;
+
+        return string.replace(/.php/, '');
     }
 
     grunt.initConfig({
@@ -129,8 +135,8 @@ module.exports = function (grunt) {
                         console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
-                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         content = content.replace(/@@pageID@@/, pageID(srcpath));
+                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
                 }
@@ -145,6 +151,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
+                        content = content.replace(/@@pageID@@/, pageID(srcpath));
                         content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
                         return content;
                     }
@@ -159,6 +166,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.min.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
+                        content = content.replace(/@@pageID@@/, pageID(srcpath));
                         content = content.replace(/@script@/, 'src="' + createPath(srcpath, 'js/app.min.js"'));
                         content = content.replace(/\.php"/g, '.html"');
                         return content;

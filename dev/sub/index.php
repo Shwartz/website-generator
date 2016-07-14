@@ -1,11 +1,15 @@
-<?php $webPath = "../"; ?>
-
+<?php
+$webPath = "../";
+$pageID = "subindex";
+/*echo 'test $pageID: ' . $pageID . '<br>';
+echo 'test $webPath: ' . $webPath;*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>home</title>
+    <title>sub index</title>
 </head>
 <body>
 <div id="wrap">

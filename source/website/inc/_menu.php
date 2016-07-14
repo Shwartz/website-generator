@@ -1,15 +1,31 @@
-<?php  //echo 'Menu $webPath: '.$webPath; ?>
-<nav class="main">
-    <ul>
-        <li><a href="<?= $webPath; ?>index.php">Home index</a></li>
-        <li><a href="<?= $webPath; ?>page-1.php">Page 1</a></li>
-        <li><a href="<?= $webPath; ?>sub/index.php">Sub Category</a></li>
-        <li><a href="<?= $webPath; ?>sub/page-2.php">Sub Category Page 2</a></li>
-    </ul>
-</nav>
+<?php
+function currentPage($id, $pageID)
+{
+    $currentPage = '';
+    if ($id == $pageID) {
+        $currentPage = ' current';
+    }
+    return $currentPage;
+}
 
-
-
+?>
+    <nav class="main">
+        <ul>
+            <li class="<?= currentPage('index', $pageID); ?>">
+                <a href="<?= $webPath; ?>index.php">Home index</a>
+            </li>
+            <li class="<?= currentPage('page-1', $pageID); ?>">
+                <a href="<?= $webPath; ?>page-1.php">Page 1</a>
+            </li>
+            <li class="<?= currentPage('subindex', $pageID); ?>">
+                <a href="<?= $webPath; ?>sub/index.php">Sub Category</a>
+            </li>
+            <li class="<?= currentPage('subpage-2', $pageID); ?>">
+                <a href="<?= $webPath; ?>sub/page-2.php">Sub Category Page
+                    2</a>
+            </li>
+        </ul>
+    </nav>
 
 
 <?php

@@ -1,10 +1,12 @@
 <?php $webPath = "../"; ?>
+<?php $pageID = "subpage-2"; ?>
+<?php echo 'test: '.$pageID; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>page 2</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
