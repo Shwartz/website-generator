@@ -15,24 +15,8 @@
         <div class="barba-container">
             <?php include 'inc/_menu.php'; ?>
             <div id="container" class="group">
-                <header class="group clearfix">
-            <span id="logoContainer">
-                                <a href="http://virtualkristine.com">
-                    <img src="http://virtualkristine.com/wp-content/uploads/2015/11/executive-service-kristine-legzdina-logo1-300x71.png" alt="Virtual assistant">
-                </a>
-	            <a class="business-phone btn" href="tel:+44-775-7998277">
-		            <span>+44-775-7998277</span>
-	            </a>
-            </span>
-                    <nav id="headerMenu">
-                        <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu sf-js-enabled"><li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="http://virtualkristine.com/">Home</a></li>
-                                <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-6 current_page_item menu-item-24"><a href="http://virtualkristine.com/services/">Services</a></li>
-                                <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="http://virtualkristine.com/prices/">Prices</a></li>
-                                <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="http://virtualkristine.com/testimonials/">Testimonials</a></li>
-                                <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="http://virtualkristine.com/contact-me/">Contact Me</a></li>
-                            </ul></div>            </nav>
-                </header>
-                <div id="content" class="group">
+                
+                <div id="content" class="content group">
                     <div id="main" class="group">
                         <div id="posts" class="left-col">
 

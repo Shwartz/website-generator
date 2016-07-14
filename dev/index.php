@@ -14,7 +14,7 @@
     <div id="barba-wrapper">
         <div class="barba-container">
             <?php include 'inc/_menu.php'; ?>
-            <div id="content" class="group">
+            <div id="content" class="content group">
                 <div id="main" class="group indexTemplate">
 
 

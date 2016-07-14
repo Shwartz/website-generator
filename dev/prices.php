@@ -1,5 +1,5 @@
 <?php $webPath = ""; ?>
-<?php $pageID = "test-string-prices.php"; ?>
+<?php $pageID = "@@pageID@@"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
     <div id="barba-wrapper">
         <div class="barba-container">
             <?php include 'inc/_menu.php'; ?>
-            <div id="content" class="group">
+            <div id="content" class="group content">
                 <div id="main" class="group">
                     <div id="posts" class="left-col">
 

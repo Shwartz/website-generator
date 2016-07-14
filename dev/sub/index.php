@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>home</title>
+    <title>sub index</title>
 </head>
 <body>
 <div id="wrap">
