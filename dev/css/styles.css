@@ -490,25 +490,8 @@ nav.main li.current a {
   display: block;
 }
 
-.add3D .content {
-  -webkit-transition: opacity 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  -moz-transition: opacity 300ms ease-in-out, -moz-transform 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
-}
-
 .remove3D nav.main {
   display: none;
-}
-
-.remove3D .content {
-  -webkit-transition: opacity 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  -moz-transition: opacity 300ms ease-in-out, -moz-transform 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
-  -webkit-transform: translateX(-80%);
-  -moz-transform: translateX(-80%);
-  -ms-transform: translateX(-80%);
-  -o-transform: translateX(-80%);
-  transform: translateX(-80%);
 }
 
 footer {

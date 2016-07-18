@@ -39,10 +39,18 @@ define(
 
                 //Removing old container
                 $oldContainer.addClass('remove3D');
-                $oldContent.css({
-                    opacity: '0',
-                    transform: 'translateX(-80%)'
-                });
+                setTimeout(function (){
+                    $oldContent.css({
+                        opacity: 0,
+                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
+                        transform: 'translate3d(-100%, 0, 0)'
+                    });
+                    setTimeout(function () {
+                        //this.done() removes old content
+                        _this.done();
+                    }, 300);
+                }, 300);
+
                 //This will show new menu
                 $newContainer.css({
                     visibility: 'visible'
@@ -52,7 +60,7 @@ define(
                 $newContent.css({
                     position: 'absolute',
                     display: 'none',
-                    transform: 'translateX(100%)',
+                    transform: 'translate3d(100%, 0, 0)',
                     opacity: 0
                 });
                 //Removing old and adding new content
@@ -65,15 +73,18 @@ define(
                     $newContent.css({
                         position: 'relative',
                         display: 'block',
-                        transform: 'translateX(100%)'
+                        //transform: 'translateX(100%)'
+                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
+                        transform: 'translate3d(100%, 0, 0)'
 
                     });
                     setTimeout(function () {
-                        _this.done();
                         $newContent.css({
-                            transform: 'translateX(0)',
+                            //transform: 'translateX(0)',
+                            transform: 'translate3d(0, 0, 0)',
                             opacity: 1
                         });
+
                     }, 100);
                 }
 

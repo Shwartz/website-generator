@@ -100,7 +100,7 @@ nav.main {
         display: block;
     }
     .content {
-        @include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
+        //@include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
         //@include transform(translate3d(0,0,0));
         //opacity: 1;
     }
@@ -111,8 +111,8 @@ nav.main {
         display: none;
     }
     .content {
-        @include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
-        @include transform(translateX(-80%));
+        //@include transition(opacity 600ms ease-in-out, transform 1600ms ease-in-out);
+        //@include transform(translateX(-80%));
     }
 }
 
