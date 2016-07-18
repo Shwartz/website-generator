@@ -31,25 +31,26 @@ define(
                 var _this = this,
                     $newContainer = $(this.newContainer),
                     $newContent = $newContainer.find('.content'),
-                    $newMenu = $newContainer.find('nav.main'),
 
                     $oldContainer = $(this.oldContainer),
                     $oldContent = $oldContainer.find('.content'),
-                    $oldMenu = $oldContainer.find('nav.main');
+
+                    removeAnimationTime = 1000,
+                    addAnimationTime = 1000;
 
                 //Removing old container
                 $oldContainer.addClass('remove3D');
-                setTimeout(function (){
-                    $oldContent.css({
-                        opacity: 0,
-                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
-                        transform: 'translate3d(-100%, 0, 0)'
-                    });
-                    setTimeout(function () {
-                        //this.done() removes old content
-                        _this.done();
-                    }, 300);
-                }, 300);
+
+                $oldContent.css({
+                    opacity: 0,
+                    transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, transform ' + removeAnimationTime + 'ms ease-in-out',
+                    transform: 'translate3d(-100%, 0, 0)'
+                });
+                setTimeout(function () {
+                    //this.done() removes old content
+                    _this.done();
+                }, removeAnimationTime);
+
 
                 //This will show new menu
                 $newContainer.css({
@@ -63,30 +64,44 @@ define(
                     transform: 'translate3d(100%, 0, 0)',
                     opacity: 0
                 });
-                //Removing old and adding new content
-                setTimeout(function () {
-                    console.log('animation finished');
-                    finishAnim();
-                }, 300);
+                //Adding new content
 
-                function finishAnim() {
+                setTimeout(function () {
                     $newContent.css({
+                        //transform: 'translateX(0)',
                         position: 'relative',
                         display: 'block',
-                        //transform: 'translateX(100%)'
-                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
-                        transform: 'translate3d(100%, 0, 0)'
+                        transition: 'opacity '+ addAnimationTime +'ms ease-in-out, transform '+ addAnimationTime +'ms ease-in-out',
+
+
+                        transform: 'translate3d(0, 0, 0)',
+                        opacity: 1
+                    });
+
+                }, addAnimationTime);
+
+                /*setTimeout(function () {
+                    $newContent.css({
+                        /!*position: 'relative',
+                        display: 'block',
+                        transition: 'opacity '+ addAnimationTime +'ms ease-in-out, transform '+ addAnimationTime +'ms ease-in-out',
+                        transform: 'translate3d(100%, 0, 0)'*!/
 
                     });
                     setTimeout(function () {
                         $newContent.css({
                             //transform: 'translateX(0)',
+                            position: 'relative',
+                            display: 'block',
+                            transition: 'opacity '+ addAnimationTime +'ms ease-in-out, transform '+ addAnimationTime +'ms ease-in-out',
+
+
                             transform: 'translate3d(0, 0, 0)',
                             opacity: 1
                         });
 
-                    }, 100);
-                }
+                    }, addAnimationTime);
+                }, 0);*/
 
 
                 /*$content.animate({ opacity: 1 }, 1000, function() {
