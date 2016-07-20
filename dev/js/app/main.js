@@ -38,11 +38,12 @@ define(
                     removeAnimationTime = 1000,
                     addAnimationTime = 1000;
 
-                //Removing old container
+                //------- Removing old container
                 $oldContainer.addClass('remove3D');
 
                 $oldContent.css({
                     opacity: 0,
+                    position: 'relative',
                     transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, transform ' + removeAnimationTime + 'ms ease-in-out',
                     transform: 'translate3d(-100%, 0, 0)'
                 });
@@ -52,30 +53,26 @@ define(
                 }, removeAnimationTime);
 
 
-                //This will show new menu
+                //----- Adding new container
+                // This will show new menu
                 $newContainer.css({
                     visibility: 'visible'
                 }).addClass('add3D');
 
                 //hiding new content, this removes flickering of contents on mob view
                 $newContent.css({
-                    position: 'absolute',
-                    display: 'none',
-                    transform: 'translate3d(100%, 0, 0)',
-                    opacity: 0
+                    position: 'fixed',
+                    opacity: 0,
+                    transform: 'translate3d(100%, 0, 0)'
                 });
                 //Adding new content
 
                 setTimeout(function () {
                     $newContent.css({
-                        //transform: 'translateX(0)',
                         position: 'relative',
-                        display: 'block',
+                        opacity: 1,
                         transition: 'opacity '+ addAnimationTime +'ms ease-in-out, transform '+ addAnimationTime +'ms ease-in-out',
-
-
-                        transform: 'translate3d(0, 0, 0)',
-                        opacity: 1
+                        transform: 'translate3d(0, 0, 0)'
                     });
 
                 }, addAnimationTime);
