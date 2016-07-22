@@ -36,7 +36,7 @@
                     <p>Some image:</p>
                     <p><img src="<?= $webPath; ?>assets/flower-2.jpg" alt=""></p>
                 </div>
-            </div>
+            </div>             
         </div>
     </div>
 
