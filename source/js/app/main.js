@@ -1,106 +1,133 @@
 define(
-    [
-        'jquery',
-        'Barba'
-    ], function ($,
-                 Barba) {
-        console.log("1 F:main.js", $, Barba);
-        Barba.Pjax.start();
+	[
+		'jquery',
+		'Barba'
+	], function ($,
+				 Barba) {
+		console.log("1 F:main.js", $, Barba);
+		Barba.Pjax.start();
 
-        var FadeTransition = Barba.BaseTransition.extend({
-            start: function () {
-                /**
-                 * This function is automatically called as soon the Transition starts
-                 * this.newContainerLoading is a Promise for the loading of the new container
-                 * (Barba.js also comes with an handy Promise polyfill!)
-                 */
+		var FadeTransition = Barba.BaseTransition.extend({
+			start: function () {
+				/**
+				 * This function is automatically called as soon the Transition starts
+				 * this.newContainerLoading is a Promise for the loading of the new container
+				 * (Barba.js also comes with an handy Promise polyfill!)
+				 */
 
-                // As soon the loading is finished and the old page is faded out, let's fade the new page
-                window.Promise
-                    .all([this.newContainerLoading, this.removeOld()])
-                    .then(this.addNew.bind(this));
-            },
+				// As soon the loading is finished and the old page is faded out, let's fade the new page
+				window.Promise
+					.all([this.newContainerLoading, this.removeOld()])
+					.then(this.addNew.bind(this));
+			},
 
-            removeOld: function () {
-                return $(this.oldContainer).promise();
-            },
+			removeOld: function () {
+				return $(this.oldContainer).promise();
+			},
 
-            addNew: function () {
-                var _this = this,
-                    $newContainer = $(this.newContainer),
-                    $newContent = $newContainer.find('.content'),
+			addNew: function () {
+				var _this = this,
+					$newContainer = $(this.newContainer),
+					$newContent = $newContainer.find('.content'),
 
-                    $oldContainer = $(this.oldContainer),
-                    $oldContent = $oldContainer.find('.content'),
+					$oldContainer = $(this.oldContainer),
+					$oldContent = $oldContainer.find('.content'),
 
-                    removeAnimationTime = 300,
-                    addAnimationTime = 300;
+					removeAnimationTime = 500,
+					addAnimationTime = 300,
 
-                //------- Removing old container
-                $oldContainer.addClass('remove3D');
+					leftW = $oldContent[0].offsetLeft;
 
-                $oldContent.css({
-                    opacity: 0,
-                    position: 'relative',
-                    transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, '
-                    + 'transform ' + removeAnimationTime + 'ms ease-in-out',
-                    transform: 'scale(0.8)',
-                    transformOrigin: '50% 0'
-                });
-                setTimeout(function () {
-                    //this.done() removes old content
-                    _this.done();
-                }, removeAnimationTime);
+				//------- Removing old container
+				$oldContainer.addClass('remove3D');
+
+				console.log('leftW: ', leftW);
+
+				$oldContent.css({
+					opacity: 0,
+					position: 'relative',
+					transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, '
+					+ 'transform ' + removeAnimationTime + 'ms ease-in-out',
+					transform: 'scale(0.8)',
+					transformOrigin: '50% 0'
+				});
+				setTimeout(function () {
+					//this.done() removes old content
+					console.log('done?')
+					_this.done();
+					showNew_step3();
+				}, removeAnimationTime);
 
 
-                //------ Adding new container
-                // This will show new menu
-                $newContainer.css({
-                    visibility: 'visible'
-                }).addClass('add3D');
+				//------ Adding new container ------------
+				// This will show new menu
+				$newContainer.css({
+					visibility: 'visible'
+				}).addClass('add3D');
 
-                //hiding new content, this removes flickering of contents on mob view
-                $newContent.css({
-                    position: 'fixed',
-                    opacity: 0,
-                    transform: 'scale(1.2)',
-                    transformOrigin: '50% 0'
-                });
-                //Adding new content
+				function showNew_step1() {
+					//hiding new content, this removes flickering of contents on mob view
+					console.log('step 1');
+					$newContent.css({
+						position: 'absolute',
+						top: '90px',
+						left: leftW + 'px',
+						opacity: 0,
+						transform: 'scale(0.8)',
+						transformOrigin: '50% 0'
+					});
+				}
 
-                setTimeout(function () {
-                    $newContent.css({
-                        position: 'relative',
-                        opacity: 1,
-                        transform: 'scale(1)',
-                        transition: 'opacity ' + addAnimationTime + 'ms ease-in-out, transform ' + addAnimationTime + 'ms ease-in-out'
-                    });
+				function showNew_step2() {
+					console.log('step 2');
+					console.log('content width: ', $newContent.width());
+					$newContent.css({
+						left: 'calc((100vw - 800)/2)',
+						opacity: 1,
+						transform: 'scale(1)',
+						transition: 'opacity ' + addAnimationTime + 'ms ease-in-out, transform ' + addAnimationTime + 'ms ease-in-out'
+					});
+				}
 
-                }, addAnimationTime);
-            }
-        });
+				function showNew_step3() {
+					console.log('step 3');
+					$newContent.css({
+						position: 'relative',
+						top: 0,
+						left: ''
+					});
+				}
 
-        /**
-         * Next step, you have to tell Barba to use the new Transition
-         */
+				//Animate and add new content
+				showNew_step1();
 
-        Barba.Pjax.getTransition = function () {
-            /**
-             * Here you can use your own logic!
-             * For example you can use different Transition based on the current page or link...
-             */
-            //console.log("transitions")
-            return FadeTransition;
-        };
+				setTimeout(function () {
+					showNew_step2();
+				}, addAnimationTime);
+			}
+		});
 
-        Barba.Dispatcher.on('linkClicked', function (e) {
-            //your listener
-            e.style.opacity = 0.5;
-            //console.log('link clicked');
-        });
-        Barba.Dispatcher.on('newPageReady', function () {
-            //your listener
-            //console.log('new page ready');
-        });
-    }
+		/**
+		 * Next step, you have to tell Barba to use the new Transition
+		 */
+
+		Barba.Pjax.getTransition = function () {
+			/**
+			 * Here you can use your own logic!
+			 * For example you can use different Transition based on the current page or link...
+			 */
+			//console.log("transitions")
+			return FadeTransition;
+		};
+
+		Barba.Dispatcher.on('linkClicked', function (e) {
+			//your listener
+			e.style.opacity = 0.5;
+			//console.log('link clicked');
+		});
+		Barba.Dispatcher.on('newPageReady', function () {
+			//your listener
+			//console.log('new page ready');
+		});
+	}
 );

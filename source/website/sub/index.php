@@ -41,7 +41,7 @@ echo 'test $webPath: ' . $webPath;*/
                     <p>Some image:</p>
                     <p><img src="<?= $webPath; ?>assets/flower-3.jpg" alt=""></p>
                 </div>
-            </div>
+            </div>          
         </div>
     </div>
 

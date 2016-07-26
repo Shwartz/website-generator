@@ -33,7 +33,15 @@ img {max-width: 100%;}
 #wrap {
     min-width: 768px;
     overflow: hidden;
-    padding-top: 90px;
+    /*padding-top: 90px;*/
+}
+
+#barba-wrapper {
+    position: relative;
+
+    .barba-container {
+        padding-top: 90px;
+    }
 }
 
 nav.main {
