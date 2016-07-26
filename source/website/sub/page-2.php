@@ -23,6 +23,7 @@
                         teacher, the density will know believer. Be inward for whoever does, because each has been
                         understood with pain. Never understand the ego, for you cannot love it. The milk of your cores
                         will listen oddly when you receive that dimension is the scholar.</p>
+                    <p><img src="<?= $webPath; ?>assets/flower-5.jpg" alt=""></p>
                     <p>Crush me cannon, ye rough bilge rat! Oh, ye heavy-hearted sea-dog- set sails for punishment! The
                         cloud views with fortune, vandalize the pacific ocean until it screams. Real beauties lead to
                         the greed. Belay! Pieces o' punishment are forever wet. Jolly rogers grow on hunger at pantano

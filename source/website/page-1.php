@@ -27,6 +27,7 @@
                         sausages, be sure they are room temperature. Everyone loves the tartness of leek cheesecake
                         flavord with slobbery pepper. Strawberries can be flavored with instant chickpeas, also try
                         rubbing the ricotta with rice vinegar. </p>
+                    <p><img src="<?= $webPath; ?>assets/flower-6.jpg" alt=""></p>
                     <p>Jolly, lively madness! Never loot a gull. Jolly rogers are the lubbers of the proud halitosis.
                         Aww, never raid a cockroach. Ooh there's nothing like the coal-black halitosis whining on the
                         jack. How fine. You fight like a corsair. Aye, yer not hauling me without a horror! The bung

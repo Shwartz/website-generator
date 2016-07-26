@@ -20,6 +20,7 @@ echo 'test $webPath: ' . $webPath;*/
             <div class="content">
                 <div class="col-6">
                     <h1>Sub category main</h1>
+                    <p><img src="<?= $webPath; ?>assets/flower-6.jpg" alt=""></p>
                     <p>YSunt spatiies acquirere clemens, magnum onuses. Fidelis ionicis tormento velox pugnas
                         consilium est. Accentors accelerare in rugensis civitas! Magnum eposs ducunt ad gemna. A
                         falsis, homo brevis frondator. Fides, gemna, et domus. Est pius era, cesaris. Cur mons
@@ -30,6 +31,7 @@ echo 'test $webPath: ' . $webPath;*/
                         alchemistic. The zen is a closest self. As i have handled you, so you must capture one
                         another. When the spirit of sorrow traps the futilities of the creator, the death will know
                         lord.</p>
+
                     <p>The flight is a carnivorous phenomenan. Nanomachines go with adventure at the harmless
                         galaxy! It is a galactic sensor, sir. Green people walk from deaths like seismic
                         spacecrafts. Carnivoro spaces, to the space station. Why does the queen harvest? Experiment

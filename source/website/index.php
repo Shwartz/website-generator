@@ -25,7 +25,9 @@ echo 'test $webPath: ' . $webPath;*/
                         other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot hear
                         it. The beauty of your intuitions will shine balanced when you praise that mineral is the
                         guru. </p>
-                    <p>Red alert, proud love! Teleporters walk with coordinates at the clear galaxy! Resist oddly
+                    <p>
+                    <p><img src="<?= $webPath; ?>assets/flower-5.jpg" alt=""></p>
+                        Red alert, proud love! Teleporters walk with coordinates at the clear galaxy! Resist oddly
                         like a calm creature. Warp impressively like a reliable creature. Technically, indeed,
                         energy! Adventure at the moon was the paralysis of metamorphosis, destroyed to a real
                         ferengi. All the transporters empower proud, small pathways. The sonic shower is more moon

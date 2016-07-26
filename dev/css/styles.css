@@ -424,6 +424,14 @@ img {
 #wrap {
   min-width: 768px;
   overflow: hidden;
+  /*padding-top: 90px;*/
+}
+
+#barba-wrapper {
+  position: relative;
+}
+
+#barba-wrapper .barba-container {
   padding-top: 90px;
 }
 
