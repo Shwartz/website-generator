@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>page 1</title>
+    <title>TITLE: page 1</title>
     <link rel="stylesheet" href="@styles@">
 </head>
 <body>

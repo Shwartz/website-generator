@@ -8,7 +8,7 @@ echo 'test $webPath: ' . $webPath;*/
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>TITLE: home</title>
     <link rel="stylesheet" href="@styles@">
 </head>
 <body>

@@ -41,8 +41,6 @@ define(
 				//------- Removing old container
 				$oldContainer.addClass('remove3D');
 
-				console.log('leftW: ', leftW);
-
 				$oldContent.css({
 					opacity: 0,
 					position: 'relative',
@@ -53,7 +51,6 @@ define(
 				});
 				setTimeout(function () {
 					//this.done() removes old content
-					console.log('done?')
 					_this.done();
 					showNew_step3();
 				}, removeAnimationTime);
@@ -80,9 +77,7 @@ define(
 
 				function showNew_step2() {
 					console.log('step 2');
-					console.log('content width: ', $newContent.width());
 					$newContent.css({
-						left: 'calc((100vw - 800)/2)',
 						opacity: 1,
 						transform: 'scale(1)',
 						transition: 'opacity ' + addAnimationTime + 'ms ease-in-out, transform ' + addAnimationTime + 'ms ease-in-out'
