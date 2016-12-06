@@ -12,7 +12,8 @@ function currentPage($id, $pageID)
 <header>
     <nav class="main">
         <ul>
-            <li class="<?php echo currentPage('index', $pageID); ?>"><a class="logo" href="index.php">Home</a></li>
+            <li class="<?php echo currentPage('index', $pageID); ?>">
+                <a class="logo" href="<?php echo $webPath; ?>index.php">Home</a></li>
             <li class="<?php echo currentPage('blog', $pageID); ?>">
                 <a href="<?php echo $webPath; ?>blog.php">Blog</a>
             </li>

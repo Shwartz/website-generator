@@ -18,7 +18,7 @@ echo 'test $webPath: ' . $webPath;*/
 	<?php // include 'inc/_header.php'; ?>
 	<div id="barba-wrapper">
 		<div class="barba-container" data-namespace="this-is-sample-article">
-			<?php include $webPath.'/inc/_menu.php'; ?>
+			<?php include '../inc/_menu.php'; ?>
 			<section class="barba-go">
 				<div class="row">
 					<div class="content">

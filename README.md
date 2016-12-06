@@ -1,7 +1,7 @@
 # website-generator
 
 ### DEMO
-http://shvarcs.com/test/micro/index.html
+http://demo.shvarcs.com/micro/index.html
 
 ### Aim
 For simple "5-pagers" instead of WordPress use simple HTML site. Easy to add/remove pages, images, content. No DB needed. Once done - FTP to your server.
@@ -18,8 +18,7 @@ There are few you can use commands:
 
  - `$ grunt php:server`
     - Start php server and open browser `http://127.0.0.1:5000/`
-    - Change url in browser: `http://127.0.0.1:5000/dev/` - for development environment
-    - Change url in browser: `http://127.0.0.1:5000/dist/` - for distribution environment
+    - Change url in browser: `http://127.0.0.1:5000/` - for development environment
  - `$ grunt dev`
     - Watcher for development environment, whatever you change in `/source/` is passed to `/dev/`
  - `$ grunt dist`
@@ -27,7 +26,7 @@ There are few you can use commands:
  
 
 ### Output
-clear HTML/CSS/JS,  all minified, using pjax method to make seemless transition between pages
+clear HTML/CSS/JS,  all minified, using <a href="http://barbajs.org/">Barba.js</a> method to make seemless transition between pages
 
 ### Structure
 
