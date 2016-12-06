@@ -53,7 +53,8 @@ echo 'test $webPath: ' . $webPath;*/
 .</p>
 					</div>
 					<aside>
-						<h3>Third Aside</h3>
+						<h3>Articles</h3>
+						<?php include '../inc/_sideMenu.php' ?>
 						<p>The fish fears with madness, drink the lighthouse until it hobbles.
 							halitosis, life, and horror.
 							The yardarm desires with pestilence, mark the fortress until it dies.

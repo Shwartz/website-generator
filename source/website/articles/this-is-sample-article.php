@@ -58,7 +58,8 @@ var _this = this,
 
 					</div>
 					<aside>
-						<h3>Aside side of life</h3>
+						<h3>Articles</h3>
+						<?php include '../inc/_sideMenu.php' ?>
 						<p><img src="<?= $webPath; ?>assets/flower-1.jpg" alt=""></p>
 						<p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
 							marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the caviar in

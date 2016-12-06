@@ -1,0 +1,14 @@
+.sidebarMenu {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+
+	a {
+		display: block;
+		padding: 4px;
+	}
+
+	.current a {
+		color: black;
+	}
+}

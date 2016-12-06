@@ -660,6 +660,21 @@ nav.main li.current a {
   }
 }
 
+.sidebarMenu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.sidebarMenu a {
+  display: block;
+  padding: 4px;
+}
+
+.sidebarMenu .current a {
+  color: black;
+}
+
 section.barba-go {
   padding: 50px 0;
 }

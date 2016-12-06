@@ -52,7 +52,8 @@ echo 'test $webPath: ' . $webPath;*/
 							mori unus ducunt ad clemens absolutio.</p>
 					</div>
 					<aside>
-						<h3>Aside for Another article</h3>
+						<h3>Articles</h3>
+						<?php include '../inc/_sideMenu.php' ?>
 						<p>Cum barcas tolerare, omnes caesiumes quaestio barbatus, teres armariumes. Axona camerarius
 							finis est.
 							Solems unda! Est dexter tus, cesaris. Cum calceus studere, omnes ususes promissio bi-color,
