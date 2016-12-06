@@ -24,11 +24,20 @@ echo 'test $webPath: ' . $webPath;*/
 					<div class="content">
 						<section>
 							<h1>Demo website</h1>
+							<p>Sometimes all you need is just a few pages to put on the internet. Surely, you can use
+								Wordpress or Jekyll. However, this seems like an overkill for me. </p>
+
+							<p>I don't want DataBase
+								for few pages, server support and PHP/ASP to do all that. I want minified HTML/CSS/JS at
+								the end for the super fast website. Something simple but with a speed and a bit of wow.
+								I use Barba.js for speed and kind of Web App feeling between page transitions. </p>
+
 							<p>This website is built by using <a href="https://github.com/Shwartz/website-generator">Github
 									- Website Generator</a>. There is a basic CSS setup, using Susy, Bourbon and Grunt
-								build tool. No Database needed, add the page in a source file, build and FTP to your
-								server. This site has generated dummy text, don't try to read that :)
+								build tool. No Database needed, add the page in a source file, build, get HTML/CSS/JS as an output
+								and FTP to your server. Simple, at least I think it is.
 							</p>
+							<p>This site has generated dummy text (below), don't try to read that :)</p>
 						</section>
 
 						<section>
@@ -44,54 +53,34 @@ echo 'test $webPath: ' . $webPath;*/
 
 							<p>
 								<a class="readMore" href="<?= $webPath; ?>articles/this-is-sample-article.php">Read
-								more</a>
+									more</a>
 							</p>
 						</section>
 
 						<section>
-							<h2><a href="#">Some different aspect to read about lorem ipsum</a></h2>
-							<p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
-								creators, and small believers will always protect them. All beloved powers understand
-								each
-								other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot
-								hear
-								it. The beauty of your intuitions will shine balanced when you praise that mineral is
-								the
-								guru... </p>
+							<h2><a href="<?= $webPath; ?>articles/another-article.php">Another article</a></h2>
+							<p>Ubi est castus acipenser? Azureus, varius caculas satis transferre de altus, lotus repressor.
+								Gratis fraticinida semper experientias sectam est. Altus, azureus brabeutas tandem carpseris de placidus, noster fermium.
+								Cum quadra favere, omnes navises attrahendam salvus, fidelis medicinaes. A falsis, accentor ferox lura.
+								Eheu. Cum castor favere, omnes glutenes anhelare talis, varius spatiies. Lumens crescere, tanquam ferox omnia.
+								sunt contencioes pugna superbus, fatalis imberes.</p>
 
-
-							<p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
-								creators, and small believers will always protect them. All beloved powers understand
-								each
-								other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot
-								hear
-								it. The beauty of your intuitions will shine balanced when you praise that mineral is
-								the
-								guru... </p>
-							<p>
-							<p><a class="readMore" href="#">Read more</a></p>
+							<p><a href="<?= $webPath; ?>articles/another-article.php">Read more</a></p>
 						</section>
 
 						<section>
-							<h2><a href="#">Amazingly great idea is here</a></h2>
-							<p><img src="<?= $webPath; ?>assets/flower-5.jpg" alt=""></p>
-							Red alert, proud love! Teleporters walk with coordinates at the clear galaxy! Resist oddly
-							like a calm creature. Warp impressively like a reliable creature. Technically, indeed,
-							energy! Adventure at the moon was the paralysis of metamorphosis, destroyed to a real
-							ferengi. All the transporters empower proud, small pathways. The sonic shower is more moon
-							now than star. neutral and surprisingly bare.</p>
-							<p>Try boiling stew blended with oyster sauce, soaked with rosemary. After pressing the
-								marshmellows, cover peanuts, lobster and whiskey with it in a sauté pan. Place the
-								caviar in
-								a wok, and rinse quickly with minced walnut juice. Fluff lettuce carefully roasted, then
-								mix
-								with teriyaki and serve tenderly in fine-mesh strainer. Mash up nine and a half
-								teaspoons of
-								bagel in one quarter cup of tabasco. </p>
+							<h2><a href="<?= $webPath; ?>articles/third-sample-article.php">Third sample article</a></h2>
+							<p>The reef drinks with death, rob the captain's quarters before it waves.
+								The rum raids with death, burn the fortress before it grows.
+								jacks whine with hunger!
+								The comrade commands with grace, mark the galley until it waves.
+								planks fall with power!
+								The tuna commands with riddle, trade the brig until it travels.
+								fight, hunger, and horror.
+								sunny urchins lead to the hunger.</p>
 
-							<p><a class="readMore" href="#">Amazingly great idea is here</a></p>
+							<p><a class="readMore" href="<?= $webPath; ?>articles/third-sample-article.php"">Third sample article</a></p>
 						</section>
-
 
 					</div>
 					<aside>

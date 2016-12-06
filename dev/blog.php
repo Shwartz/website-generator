@@ -20,28 +20,49 @@
 			<section class="barba-go">
 				<div class="row">
 					<div class="content">
-						<h1>Page 1</h1>
-						<p>YIf you fly or listen with a pure thought, density views you. The purpose of your minerals
-							will
-							balance oddly when you need that sorrow is the aspect. The courage of your loves will lure
-							harmoniously when you praise that freedom is the visitor. When the lama of justice fears the
-							minerals of the karma, the emptiness will know self.</p>
-						<p>All children like peelled tofus in adobo sauce and cinnamon. With pork shoulders drink
-							bourbon.
-							Soak each side of the herring with three tablespoons of chocolate. When flattening heated
-							sausages, be sure they are room temperature. Everyone loves the tartness of leek cheesecake
-							flavord with slobbery pepper. Strawberries can be flavored with instant chickpeas, also try
-							rubbing the ricotta with rice vinegar. </p>
-						<p><img src="<?= $webPath; ?>assets/flower-6.jpg" alt=""></p>
-						<p>Jolly, lively madness! Never loot a gull. Jolly rogers are the lubbers of the proud
-							halitosis.
-							Aww, never raid a cockroach. Ooh there's nothing like the coal-black halitosis whining on
-							the
-							jack. How fine. You fight like a corsair. Aye, yer not hauling me without a horror! The bung
-							hole hauls with greed, vandalize the seychelles before it grows.</p>
+						<section>
+							<h2><a href="<?= $webPath; ?>articles/this-is-sample-article.php">This is sample article</a>
+							</h2>
+							<p>There is no dynamic parts, all the articles on a page is added one by one. The path to an
+								article is fixed by Grunt build process. An example of a path: </p>
+
+							<pre><code class="language-js">&lt;a class="readMore"
+	href="&lt;?= $webPath; ?&gt;articles/this-is-sample-article.php"&gt;
+		Read more
+&lt;/a&gt;</code></pre>
+
+							<p>
+								<a class="readMore" href="<?= $webPath; ?>articles/this-is-sample-article.php">Read
+									more</a>
+							</p>
+						</section>
+
+						<section>
+							<h2><a href="<?= $webPath; ?>articles/another-article.php">Another article</a></h2>
+							<p>Ubi est castus acipenser? Azureus, varius caculas satis transferre de altus, lotus repressor.
+								Gratis fraticinida semper experientias sectam est. Altus, azureus brabeutas tandem carpseris de placidus, noster fermium.
+								Cum quadra favere, omnes navises attrahendam salvus, fidelis medicinaes. A falsis, accentor ferox lura.
+								Eheu. Cum castor favere, omnes glutenes anhelare talis, varius spatiies. Lumens crescere, tanquam ferox omnia.
+								sunt contencioes pugna superbus, fatalis imberes.</p>
+
+							<p><a href="<?= $webPath; ?>articles/another-article.php">Read more</a></p>
+						</section>
+
+						<section>
+							<h2><a href="<?= $webPath; ?>articles/third-sample-article.php">Third sample article</a></h2>
+							<p>The reef drinks with death, rob the captain's quarters before it waves.
+								The rum raids with death, burn the fortress before it grows.
+								jacks whine with hunger!
+								The comrade commands with grace, mark the galley until it waves.
+								planks fall with power!
+								The tuna commands with riddle, trade the brig until it travels.
+								fight, hunger, and horror.
+								sunny urchins lead to the hunger.</p>
+
+							<p><a class="readMore" href="<?= $webPath; ?>articles/third-sample-article.php"">Third sample article</a></p>
+						</section>
 					</div>
 					<aside>
-						<p>Some image:</p>
 						<p><img src="<?= $webPath; ?>assets/flower-2.jpg" alt=""></p>
 						<p>Jolly, lively madness! Never loot a gull. Jolly rogers are the lubbers of the proud
 							halitosis.

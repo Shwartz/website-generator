@@ -670,6 +670,10 @@ section.barba-go section {
   padding-bottom: 20px;
 }
 
+section.barba-go section:last-child {
+  border-bottom: none;
+}
+
 .row {
   position: relative;
   max-width: 800px;
