@@ -111,7 +111,7 @@ var _this = this,
 </div>
 
 <?php include 'inc/_footer.php'; ?>
-<script @script@></script>
+<script @script@ async></script>
 <div class="js">
 	<script>
 		(function () {

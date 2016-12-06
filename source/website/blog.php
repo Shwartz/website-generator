@@ -57,6 +57,6 @@
 </div>
 
 <?php include 'inc/_footer.php'; ?>
-<script @script@></script>
+<script @script@ async></script>
 </body>
 </html>
