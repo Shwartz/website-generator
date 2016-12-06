@@ -2,11 +2,12 @@ define(
 	[
 		'jquery',
 		'Barba',
-		'./map'
+		'app/entryPoint'
 	], function ($,
 				 Barba,
-				map) {
-		console.log("1 F:main.js", $, Barba);
+				 entryPoint) {
+		//console.log("1 F:main.js", $, Barba);
+
 		Barba.Pjax.start();
 
 		var FadeTransition = Barba.BaseTransition.extend({
@@ -28,14 +29,15 @@ define(
 			},
 
 			addNew: function () {
+				//console.log('addNew');
 				var _this = this,
 					$newContainer = $(this.newContainer),
-					$newContent = $newContainer.find('.content'),
+					$newContent = $newContainer.find('.barba-go'),
 
 					$oldContainer = $(this.oldContainer),
-					$oldContent = $oldContainer.find('.content'),
+					$oldContent = $oldContainer.find('.barba-go'),
 
-					removeAnimationTime = 500,
+					removeAnimationTime = 300,
 					addAnimationTime = 300,
 
 					leftW = $oldContent[0].offsetLeft;
@@ -48,12 +50,15 @@ define(
 					position: 'relative',
 					transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, '
 					+ 'transform ' + removeAnimationTime + 'ms ease-in-out',
-					transform: 'scale(0.8)',
+					transform: 'scale(0.98)',
 					transformOrigin: '50% 0'
 				});
 				setTimeout(function () {
 					//this.done() removes old content
 					_this.done();
+					// ON page load we adding whatever we need here
+					//console.log('!!! entryPoint: ', entryPoint);
+					entryPoint();
 					showNew_step3();
 				}, removeAnimationTime);
 
@@ -66,19 +71,19 @@ define(
 
 				function showNew_step1() {
 					//hiding new content, this removes flickering of contents on mob view
-					console.log('step 1');
+					//console.log('step 1');
 					$newContent.css({
 						position: 'absolute',
-						top: '90px',
+						top: '50px',
 						left: leftW + 'px',
 						opacity: 0,
-						transform: 'scale(0.8)',
+						transform: 'scale(0.98)',
 						transformOrigin: '50% 0'
 					});
 				}
 
 				function showNew_step2() {
-					console.log('step 2');
+					//console.log('step 2');
 					$newContent.css({
 						opacity: 1,
 						transform: 'scale(1)',
@@ -87,7 +92,8 @@ define(
 				}
 
 				function showNew_step3() {
-					console.log('step 3');
+					//console.log('step 3');
+
 					$newContent.css({
 						position: 'relative',
 						top: 0,
@@ -113,19 +119,26 @@ define(
 			 * Here you can use your own logic!
 			 * For example you can use different Transition based on the current page or link...
 			 */
-			console.log('transitions this: ', this, this.getCurrentUrl());
+			//console.log("transitions");
 			return FadeTransition;
 		};
-		
+
 		Barba.Dispatcher.on('linkClicked', function (e) {
 			//your listener
 			e.style.opacity = 0.5;
 			//console.log('link clicked');
 		});
-		
 		Barba.Dispatcher.on('newPageReady', function () {
 			//your listener
 			//console.log('new page ready');
 		});
+
+		// First load we run here
+		//console.log('!!! entryPoint: ', entryPoint);
+		entryPoint();
+
+		// making global
+		window.Barba = Barba;
+
 	}
 );
