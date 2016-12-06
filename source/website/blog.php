@@ -63,6 +63,8 @@
 						</section>
 					</div>
 					<aside>
+						<h3>Articles</h3>
+						<?php include 'inc/_sideMenu.php' ?>
 						<p><img src="<?= $webPath; ?>assets/flower-2.jpg" alt=""></p>
 						<p>Jolly, lively madness! Never loot a gull. Jolly rogers are the lubbers of the proud
 							halitosis.
