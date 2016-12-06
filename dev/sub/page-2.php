@@ -44,6 +44,6 @@
 </div>
 
 <?php include '../inc/_footer.php'; ?>
-<script data-main="/dev/js/app" src="/dev/js/require.js"></script>
+<script data-main="/js/app" src="/js/require.js"></script>
 </body>
 </html>

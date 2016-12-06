@@ -3,14 +3,15 @@
 // Configure loading modules from the lib directory,
 // except for 'app' ones, which are in a sibling
 // directory.
-console.log('f:app.js');
+
 requirejs.config({
     urlArgs: "bust=" + (new Date()).getTime(),
-    baseUrl: '/dev/js',
+    baseUrl: '/js',
     paths: {
         app: 'app',
         Barba: 'vendor/barba/barba',
-        jquery: 'vendor/jquery'
+        jquery: 'vendor/jquery',
+        prism: 'vendor/prism'
     }
 });
 
