@@ -4,10 +4,11 @@ module.exports = function (grunt) {
     /**
      * Usage:
      * You must have node.js on your machine: https://nodejs.org/en/download/
-     * CD to /app/source/
+     * CD to /app
      * Terminal: npm install
-     * grunt
-     * grunt dist
+     * grunt php:server //will open server on localhost:5000
+     * grunt // dev tasks
+     * grunt dist // production
      *
      * */
 // https://www.npmjs.com/package/jit-grunt
@@ -20,7 +21,7 @@ module.exports = function (grunt) {
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
     console.log('Grunt current task: ' + path);
-    
+
     //var pathToLocalWeb = settings;
     //var pathToLocalWeb = 'http://generator.local/';
     var pathToLocalWeb = 'http://127.0.0.1:5010';
@@ -136,7 +137,7 @@ module.exports = function (grunt) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@@pageID@@/, pageID(srcpath));
-                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
+                        content = content.replace(/@script@/, 'data-main="/js/app" src="/js/require.js"');
                         return content;
                     }
                 }
@@ -152,7 +153,7 @@ module.exports = function (grunt) {
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@@pageID@@/, pageID(srcpath));
-                        content = content.replace(/@script@/, 'data-main="/dev/js/app" src="/dev/js/require.js"');
+                        content = content.replace(/@script@/, 'data-main="/js/app" src="/js/require.js"');
                         return content;
                     }
                 }
@@ -205,7 +206,7 @@ module.exports = function (grunt) {
                     port: 5000,
                     keepalive: true,
                     open: true,
-                    base: ''
+                    base: 'dev'
                 }
             },
             tempServer: {
@@ -238,7 +239,8 @@ module.exports = function (grunt) {
                         'app': 'js/app',
                         'common': 'js/common/main',
                         'jquery': 'js/vendor/jquery',
-                        'Barba': 'js/vendor/barba/barba'
+                        'Barba': 'js/vendor/barba/barba',
+                        'prism': 'js/vendor/prism'
                     }
                 }
 
@@ -259,14 +261,14 @@ module.exports = function (grunt) {
             }
         }
     });
-    
+
 
     grunt.task.registerTask('generateWebsite', 'description', function () {
         console.log('Generating website');
-        
+
         var tasks = [];
         var src = ['_temp/**/*.php', '!_temp/inc/**'];
-        
+
         //array of path to pages
         var arrPages = grunt.file.expand({cwd: ''}, src);
 
@@ -279,7 +281,7 @@ module.exports = function (grunt) {
                 subCategory = arrSegments[1] + '/';
                 //console.log('LOG subCategory: ', subCategory);
             }
-            
+
             var pageName = subCategory + '' + arrSegments[arrSegments.length - 1];
             //creating http tasks with unique name
             http[pageName + '-' + i] = {
@@ -320,4 +322,3 @@ module.exports = function (grunt) {
         'minifyHtml:dist'
     ]);
 };
-

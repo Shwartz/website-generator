@@ -1,9 +1,11 @@
 define(
 	[
 		'jquery',
-		'Barba'
+		'Barba',
+		'./map'
 	], function ($,
-				 Barba) {
+				 Barba,
+				map) {
 		console.log("1 F:main.js", $, Barba);
 		Barba.Pjax.start();
 
@@ -111,15 +113,16 @@ define(
 			 * Here you can use your own logic!
 			 * For example you can use different Transition based on the current page or link...
 			 */
-			//console.log("transitions")
+			console.log('transitions this: ', this, this.getCurrentUrl());
 			return FadeTransition;
 		};
-
+		
 		Barba.Dispatcher.on('linkClicked', function (e) {
 			//your listener
 			e.style.opacity = 0.5;
 			//console.log('link clicked');
 		});
+		
 		Barba.Dispatcher.on('newPageReady', function () {
 			//your listener
 			//console.log('new page ready');

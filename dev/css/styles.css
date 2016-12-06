@@ -522,4 +522,9 @@ footer p {
   margin: 0;
 }
 
+#map {
+  height: 300px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 /*# sourceMappingURL=styles.css.map */

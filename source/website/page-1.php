@@ -22,6 +22,24 @@
                         balance oddly when you need that sorrow is the aspect. The courage of your loves will lure
                         harmoniously when you praise that freedom is the visitor. When the lama of justice fears the
                         minerals of the karma, the emptiness will know self.</p>
+
+                    <h3>Test for third party js code (google map)</h3>
+
+                    <div id="map"></div>
+                    <!--<script>
+                        function initMap() {
+                            // Create a map object and specify the DOM element for display.
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: -34.397, lng: 150.644},
+                                scrollwheel: false,
+                                zoom: 8
+                            });
+                        }
+
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb8xC7hYpD8eol4m9EZaWcTMA-CS0UYO8&callback=initMap"
+                            async defer></script>-->
+
                     <p>All children like peelled tofus in adobo sauce and cinnamon. With pork shoulders drink bourbon.
                         Soak each side of the herring with three tablespoons of chocolate. When flattening heated
                         sausages, be sure they are room temperature. Everyone loves the tartness of leek cheesecake

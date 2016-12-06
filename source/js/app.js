@@ -10,7 +10,8 @@ requirejs.config({
     paths: {
         app: 'app',
         Barba: 'vendor/barba/barba',
-        jquery: 'vendor/jquery'
+        jquery: 'vendor/jquery',
+        prism: 'vendor/prism'
     }
 });
 
