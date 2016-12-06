@@ -22,7 +22,7 @@ echo 'test $webPath: ' . $webPath;*/
 			<section class="barba-go">
 				<div class="row">
 					<div class="content">
-						<h1><a href="#">This is sample article lorem ipsum</a></h1>
+						<h1><a href="<?php echo $webPath; ?>/articles/this-is-sample-article.php">This is sample article lorem ipsum</a></h1>
 						<p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
 							creators, and small believers will always protect them. All beloved powers understand each
 							other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot hear

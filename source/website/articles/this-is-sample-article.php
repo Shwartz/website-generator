@@ -1,6 +1,6 @@
 <?php
-$webPath = "";
-$pageID = "index";
+$webPath = "@@path@@";
+$pageID = "@@pageID@@";
 /*echo 'test $pageID: ' . $pageID . '<br>';
 echo 'test $webPath: ' . $webPath;*/
 ?>
@@ -9,20 +9,20 @@ echo 'test $webPath: ' . $webPath;*/
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>index page's title</title>
+	<title>this is sample article title</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="@styles@">
 </head>
 <body>
 <div id="wrap">
 	<?php // include 'inc/_header.php'; ?>
 	<div id="barba-wrapper">
-		<div class="barba-container" data-namespace="homepage">
-			<?php include 'inc/_menu.php'; ?>
+		<div class="barba-container" data-namespace="this-is-sample-article">
+			<?php include $webPath.'/inc/_menu.php'; ?>
 			<section class="barba-go">
 				<div class="row">
 					<div class="content">
-						<h1><a href="<?php echo $webPath; ?>/articles/this-is-sample-article.php">This is sample article lorem ipsum</a></h1>
+						<h1>This is sample article</h1>
 						<p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
 							creators, and small believers will always protect them. All beloved powers understand each
 							other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot hear
@@ -48,9 +48,7 @@ var _this = this,
 	leftW = $oldContent[0].offsetLeft;
 }
 </code></pre>
-						<p><a class="readMore" href="#">Read more</a></p>
 
-						<h1><a href="#">Some different aspect to read about lorem ipsum</a></h1>
 						<p>The beloved courage of hypnosis is to forget with ascension. Explosion of the cores,
 							creators, and small believers will always protect them. All beloved powers understand each
 							other, only alchemistic egos have an emptiness. Never realize the saint, for you cannot hear
@@ -64,9 +62,6 @@ var _this = this,
 							it. The beauty of your intuitions will shine balanced when you praise that mineral is the
 							guru... </p>
 						<p>
-						<p><a class="readMore" href="#">Read more</a></p>
-
-						<h1><a href="#">Amazingly great idea is here</a></h1>
 						<p><img src="<?= $webPath; ?>assets/flower-5.jpg" alt=""></p>
 						Red alert, proud love! Teleporters walk with coordinates at the clear galaxy! Resist oddly
 						like a calm creature. Warp impressively like a reliable creature. Technically, indeed,
@@ -110,8 +105,8 @@ var _this = this,
 	</div>
 </div>
 
-<?php include 'inc/_footer.php'; ?>
-<script data-main="/js/app" src="/js/require.js"></script>
+<?php include $webPath.'/inc/_footer.php'; ?>
+<script @script@></script>
 <div class="js">
 	<script>
 		(function () {
