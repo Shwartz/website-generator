@@ -89,6 +89,7 @@ define(
 						transform: 'scale(1)',
 						transition: 'opacity ' + addAnimationTime + 'ms ease-in-out, transform ' + addAnimationTime + 'ms ease-in-out'
 					});
+					document.body.scrollTop = 0; //Long pages has to be scroll up
 				}
 
 				function showNew_step3() {
