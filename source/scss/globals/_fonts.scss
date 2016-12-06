@@ -1,0 +1,17 @@
+%Raleway {
+	font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+	font-size: 2.6em;
+	@extend %Raleway;
+}
+
+h3 {
+	font-size: 2em;
+	@extend %Raleway;
+}
+
+p {
+	line-height: 1.4em;
+}

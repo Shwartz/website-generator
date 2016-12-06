@@ -1,0 +1,21 @@
+$susy: (
+	//columns: 12, // The number of columns in your grid
+	math: fluid,
+	output: float,
+	gutters: 0.5,
+	gutter-position: after,
+	global-box-sizing: content-box
+);
+
+//@include layout($susy);
+/* BREAKPOINTS */
+//$breakpoint-to-ems: true;
+
+$mob: 0;
+$mobLandscape: 320px;
+$smallTablet: 480px;
+$tablet: 640px;
+$tabletLandscape: 768px;
+$laptop: 1024px;
+$desktop: 1200px;
+$elephant: 1600px;

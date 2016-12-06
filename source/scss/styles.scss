@@ -14,82 +14,33 @@ Tags:         	black, white
 // ---- Vendors ----
 // Bourbon
 // See: http://bourbon.io/docs/
-@import 'bourbon/_bourbon';
+@import 'bourbon/bourbon';
 // Susy
 // Susy grid system. See: http://susydocs.oddbird.net/en/latest/
 @import 'susy/susy';
 // External libraries and frameworks
 @import 'helper/normalize';
+@import 'vendor/prism';
 
 //Themes own styles here
+@import 'globals/variables';
+@import 'globals/fonts';
 @import 'mixins/testMixin';
-
-body {
-    background: #e7fae8;
-}
+@import 'modules/mainMenu';
+@import 'modules/content';
+@import 'modules/footer';
 
 img {max-width: 100%;}
 
 #wrap {
-    min-width: 768px;
     overflow: hidden;
-    /*padding-top: 90px;*/
 }
 
 #barba-wrapper {
     position: relative;
 
     .barba-container {
-        padding-top: 90px;
-    }
-}
-
-nav.main {
-    width: 100%;
-    background: #333;
-    position: absolute;
-    top: 0;
-
-    ul {
-        max-width: 900px;
-        margin: 0 auto;
-        height: 90px;
-        line-height: 90px;
-    }
-
-    li {
-        display: inline-block;
-        padding: 0 20px;
-    }
-
-    a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    li.current a {
-        color: #fff7b9;
-    }
-}
-
-.content {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding-bottom: 90px;
-    opacity: 1;
-
-    .col-6 {
-        width: 50%;
-        float: left;
-        padding: 0 10px;
+        padding-top: 50px;
     }
 }
 
@@ -107,7 +58,7 @@ nav.main {
     nav.main {
         display: block;
     }
-    .content {
+    .barba-go {
         //@include transition(opacity 300ms ease-in-out, transform 300ms ease-in-out);
         //@include transform(translate3d(0,0,0));
         //opacity: 1;
@@ -118,32 +69,8 @@ nav.main {
     nav.main {
         display: none;
     }
-    .content {
+    .barba-go {
         //@include transition(opacity 600ms ease-in-out, transform 1600ms ease-in-out);
         //@include transform(translateX(-80%));
     }
-}
-
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    height: 45px;
-    line-height: 45px;
-    background: #333;
-    color: #aaa;
-
-    div {
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    p {
-        margin: 0;
-    }
-}
-
-#map {
-    height: 300px;
-    background: rgba(0,0,0,0.3);
 }

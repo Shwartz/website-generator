@@ -1,0 +1,35 @@
+section {
+	padding: 50px 0;
+}
+
+.row {
+	position: relative;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+.content {
+	@include span(12 of 12);
+}
+
+aside {
+	@include span(12 of 12);
+}
+
+@include susy-breakpoint($laptop) {
+	.row {
+		max-width: 1024px;
+	}
+
+	.content {
+		@include span(8 of 12);
+	}
+
+	aside {
+		@include span(4 of 12);
+		@include last;
+	}
+}
+

@@ -409,44 +409,190 @@ th {
   padding: 0;
 }
 
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+code[class*="language-"],
+pre[class*="language-"], pre, code {
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection, pre, code {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #f5f2f0;
+}
+
+/* BREAKPOINTS */
+h1, h3, nav.main .logo {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p {
+  line-height: 1.4em;
+}
+
 .mixin1 {
   color: rebeccapurple;
 }
 
-body {
-  background: #e7fae8;
-}
-
-img {
-  max-width: 100%;
-}
-
-#wrap {
-  min-width: 768px;
-  overflow: hidden;
-  /*padding-top: 90px;*/
-}
-
-#barba-wrapper {
-  position: relative;
-}
-
-#barba-wrapper .barba-container {
-  padding-top: 90px;
-}
-
 nav.main {
-  width: 100%;
-  background: #333;
   position: absolute;
+  width: 100%;
   top: 0;
+  background: #fff;
+  box-shadow: 0 0 2px #999;
+}
+
+nav.main .logo {
+  color: #999;
+  font-size: 26px;
 }
 
 nav.main ul {
-  max-width: 900px;
+  max-width: 800px;
+  height: 50px;
   margin: 0 auto;
-  height: 90px;
-  line-height: 90px;
+  padding: 0 10px;
+  line-height: 50px;
 }
 
 nav.main li {
@@ -454,34 +600,124 @@ nav.main li {
   padding: 0 20px;
 }
 
+nav.main li:first-child {
+  padding-left: 0;
+}
+
+nav.main li:last-child {
+  padding-right: 0;
+}
+
 nav.main a {
   display: block;
-  color: #fff;
-  text-decoration: none;
+  color: #999;
   font-size: 18px;
+  text-decoration: none;
+  transition: 300ms color;
 }
 
 nav.main a:hover {
-  text-decoration: underline;
+  color: #333;
 }
 
 nav.main li.current a {
-  color: #fff7b9;
+  color: #333333;
+  text-shadow: 0 0 2px #999;
+}
+
+@media (min-width: 1024px) {
+  nav.main ul {
+    max-width: 1024px;
+  }
+}
+
+section {
+  padding: 50px 0;
+}
+
+.row {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+  overflow: hidden;
 }
 
 .content {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-bottom: 90px;
-  opacity: 1;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.content .col-6 {
-  width: 50%;
+aside {
+  width: 100%;
   float: left;
-  padding: 0 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 1024px) {
+  .row {
+    max-width: 1024px;
+  }
+  .content {
+    width: 65.7142857143%;
+    float: left;
+    margin-right: 2.8571428571%;
+  }
+  aside {
+    width: 31.4285714286%;
+    float: left;
+    margin-right: 2.8571428571%;
+    float: right;
+    margin-right: 0;
+  }
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  padding: 50px 0;
+  border-top: 1px solid #999;
+  background: #ddd;
+  font-size: 14px;
+}
+
+footer div {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p, footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #333;
+  text-shadow: 0 0 1px #777;
+}
+
+img {
+  max-width: 100%;
+}
+
+#wrap {
+  overflow: hidden;
+}
+
+#barba-wrapper {
+  position: relative;
+}
+
+#barba-wrapper .barba-container {
+  padding-top: 50px;
 }
 
 .keeper {
@@ -500,31 +736,6 @@ nav.main li.current a {
 
 .remove3D nav.main {
   display: none;
-}
-
-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  height: 45px;
-  line-height: 45px;
-  background: #333;
-  color: #aaa;
-}
-
-footer div {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-footer p {
-  margin: 0;
-}
-
-#map {
-  height: 300px;
-  background: rgba(0, 0, 0, 0.3);
 }
 
 /*# sourceMappingURL=styles.css.map */

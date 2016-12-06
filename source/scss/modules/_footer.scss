@@ -1,0 +1,27 @@
+footer {
+	position: relative;
+	width: 100%;
+	bottom: 0;
+	padding: 50px 0;
+	border-top: 1px solid #999;
+	background: #ddd;
+	font-size: 14px;
+
+	div {
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	p {
+		margin: 0;
+	}
+
+	p, a {
+		color: #555;
+	}
+
+	a:hover {
+		color: #333;
+		text-shadow: 0 0 1px #777;
+	}
+}
