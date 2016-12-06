@@ -9,7 +9,7 @@ echo 'test $webPath: ' . $webPath;*/
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Blog - Shvarcs web notes</title>
+	<title>index page's title</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="@styles@">
 </head>

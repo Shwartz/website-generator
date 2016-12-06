@@ -12,9 +12,9 @@ function currentPage($id, $pageID)
 <header>
     <nav class="main">
         <ul>
-            <li class="<?php echo currentPage('me', $pageID); ?>"><a class="logo" href="me.php">Andris Shvarcs</a></li>
-            <li class="<?php echo currentPage('index', $pageID); ?>">
-                <a href="<?php echo $webPath; ?>index.php">Blog</a>
+            <li class="<?php echo currentPage('index', $pageID); ?>"><a class="logo" href="index.php">Home</a></li>
+            <li class="<?php echo currentPage('blog', $pageID); ?>">
+                <a href="<?php echo $webPath; ?>blog.php">Blog</a>
             </li>
         </ul>
     </nav>

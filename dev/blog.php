@@ -1,5 +1,5 @@
 <?php $webPath = ""; ?>
-<?php $pageID = "me"; ?>
+<?php $pageID = "blog"; ?>
 <?php //echo 'test: '.$pageID; ?>
 
 <!DOCTYPE html>
