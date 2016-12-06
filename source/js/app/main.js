@@ -37,8 +37,8 @@ define(
 					$oldContainer = $(this.oldContainer),
 					$oldContent = $oldContainer.find('.barba-go'),
 
-					removeAnimationTime = 300,
-					addAnimationTime = 300,
+					removeAnimationTime = 180,
+					addAnimationTime = 180,
 
 					leftW = $oldContent[0].offsetLeft;
 
@@ -50,7 +50,7 @@ define(
 					position: 'relative',
 					transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, '
 					+ 'transform ' + removeAnimationTime + 'ms ease-in-out',
-					transform: 'scale(0.98)',
+					transform: 'scale(0.99)',
 					transformOrigin: '50% 0'
 				});
 				setTimeout(function () {
@@ -77,7 +77,7 @@ define(
 						top: '50px',
 						left: leftW + 'px',
 						opacity: 0,
-						transform: 'scale(0.98)',
+						transform: 'scale(0.99)',
 						transformOrigin: '50% 0'
 					});
 				}
