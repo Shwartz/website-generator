@@ -5,13 +5,44 @@
 h1 {
 	font-size: 2.6em;
 	@extend %Raleway;
+
+	a {
+		border-bottom: 1px solid inherit;
+		text-decoration: none;
+		@extend %Raleway;
+	}
 }
+
+h2 {
+	font-size: 2.2em;
+	@extend %Raleway;
+
+	a {
+		border-bottom: 1px solid $aGreen;
+		text-decoration: none;
+		@extend %Raleway;
+	}
+}
+
 
 h3 {
 	font-size: 2em;
 	@extend %Raleway;
 }
 
+h1, h2, h3, p {
+	color: $default;
+}
+
 p {
 	line-height: 1.4em;
+}
+
+a {
+	color: $aGreen;
+	transition: 300ms color;
+
+	&:hover {
+		color: $aGreenHover;
+	}
 }

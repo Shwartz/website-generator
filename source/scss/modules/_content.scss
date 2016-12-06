@@ -1,6 +1,13 @@
-section {
+section.barba-go {
 	padding: 50px 0;
+
+	section {
+		border-bottom: 1px solid $lightGrey;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+	}
 }
+
 
 .row {
 	position: relative;

@@ -30,6 +30,8 @@ html {
  */
 body {
   margin: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
 }
 
 * {
@@ -554,7 +556,12 @@ pre {
 }
 
 /* BREAKPOINTS */
-h1, h3, nav.main .logo {
+.white {
+  color: #fff;
+}
+
+/* BREAKPOINTS */
+h1, h1 a, h2, h2 a, h3, nav.main a {
   font-family: 'Raleway', sans-serif;
 }
 
@@ -562,12 +569,39 @@ h1 {
   font-size: 2.6em;
 }
 
+h1 a {
+  border-bottom: 1px solid inherit;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2.2em;
+}
+
+h2 a {
+  border-bottom: 1px solid #319e91;
+  text-decoration: none;
+}
+
 h3 {
   font-size: 2em;
 }
 
+h1, h2, h3, p {
+  color: #444;
+}
+
 p {
   line-height: 1.4em;
+}
+
+a {
+  color: #319e91;
+  transition: 300ms color;
+}
+
+a:hover {
+  color: #8dccc4;
 }
 
 .mixin1 {
@@ -580,11 +614,6 @@ nav.main {
   top: 0;
   background: #fff;
   box-shadow: 0 0 2px #999;
-}
-
-nav.main .logo {
-  color: #999;
-  font-size: 26px;
 }
 
 nav.main ul {
@@ -631,8 +660,14 @@ nav.main li.current a {
   }
 }
 
-section {
+section.barba-go {
   padding: 50px 0;
+}
+
+section.barba-go section {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .row {

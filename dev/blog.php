@@ -57,6 +57,6 @@
 </div>
 
 <?php include 'inc/_footer.php'; ?>
-<script data-main="/js/app" src="/js/require.js"></script>
+<script data-main="/js/app" src="/js/require.js" async></script>
 </body>
 </html>
