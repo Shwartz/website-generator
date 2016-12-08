@@ -14,8 +14,6 @@ echo 'test $webPath: ' . $webPath;*/
 </head>
 <body>
 <div id="wrap">
-	<?php echo $pageID; ?>
-
 	<?php // include 'inc/_header.php'; ?>
 	<div id="barba-wrapper">
 		<div class="barba-container" data-namespace="another-article">
