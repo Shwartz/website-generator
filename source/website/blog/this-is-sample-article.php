@@ -1,14 +1,14 @@
 <?php
-$webPath = "../";
-$pageID = "articlesthis-is-sample-article";
-/*echo 'test $pageID: ' . $pageID . '<br>';
-echo 'test $webPath: ' . $webPath;*/
+$webPath = "@@path@@";
+$pageID = "@@pageID@@";
+echo 'test $pageID: ' . $pageID . '<br>';
+echo 'test $webPath: ' . $webPath;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include '../inc/_meta.php'; ?>
-	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="@styles@">
 	<meta name="description" content="">
 	<title>this is sample article title</title>
 </head>
@@ -85,7 +85,7 @@ var _this = this,
 </div>
 
 <?php include $webPath.'/inc/_footer.php'; ?>
-<script data-main="/js/app" src="/js/require.js" async></script>
+<script @script@ async></script>
 <div class="js">
 	<script>
 		(function () {

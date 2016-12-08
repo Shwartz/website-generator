@@ -40,35 +40,35 @@ echo 'test $webPath: ' . $webPath;*/
 						</section>
 
 						<section>
-							<h2><a href="<?= $webPath; ?>articles/this-is-sample-article.php">This is sample article</a>
+							<h2><a href="<?= $webPath; ?>blog/this-is-sample-article.php">This is sample article</a>
 							</h2>
 							<p>There is no dynamic parts, all the articles on a page is added one by one. The path to an
 								article is fixed by Grunt build process. An example of a path: </p>
 
 							<pre><code class="language-js">&lt;a class="readMore"
-	href="&lt;?= $webPath; ?&gt;articles/this-is-sample-article.php"&gt;
+	href="&lt;?= $webPath; ?&gt;blog/this-is-sample-article.php"&gt;
 		Read more
 &lt;/a&gt;</code></pre>
 
 							<p>
-								<a class="readMore" href="<?= $webPath; ?>articles/this-is-sample-article.php">Read
+								<a class="readMore" href="<?= $webPath; ?>blog/this-is-sample-article.php">Read
 									more</a>
 							</p>
 						</section>
 
 						<section>
-							<h2><a href="<?= $webPath; ?>articles/another-article.php">Another article</a></h2>
+							<h2><a href="<?= $webPath; ?>blog/another-article.php">Another article</a></h2>
 							<p>Ubi est castus acipenser? Azureus, varius caculas satis transferre de altus, lotus repressor.
 								Gratis fraticinida semper experientias sectam est. Altus, azureus brabeutas tandem carpseris de placidus, noster fermium.
 								Cum quadra favere, omnes navises attrahendam salvus, fidelis medicinaes. A falsis, accentor ferox lura.
 								Eheu. Cum castor favere, omnes glutenes anhelare talis, varius spatiies. Lumens crescere, tanquam ferox omnia.
 								sunt contencioes pugna superbus, fatalis imberes.</p>
 
-							<p><a href="<?= $webPath; ?>articles/another-article.php">Read more</a></p>
+							<p><a href="<?= $webPath; ?>blog/another-article.php">Read more</a></p>
 						</section>
 
 						<section>
-							<h2><a href="<?= $webPath; ?>articles/third-sample-article.php">Third sample article</a></h2>
+							<h2><a href="<?= $webPath; ?>blog/third-sample-article.php">Third sample article</a></h2>
 							<p>The reef drinks with death, rob the captain's quarters before it waves.
 								The rum raids with death, burn the fortress before it grows.
 								jacks whine with hunger!
@@ -78,7 +78,7 @@ echo 'test $webPath: ' . $webPath;*/
 								fight, hunger, and horror.
 								sunny urchins lead to the hunger.</p>
 
-							<p><a class="readMore" href="<?= $webPath; ?>articles/third-sample-article.php"">Third sample article</a></p>
+							<p><a class="readMore" href="<?= $webPath; ?>blog/third-sample-article.php"">Third sample article</a></p>
 						</section>
 
 					</div>
