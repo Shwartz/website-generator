@@ -1,6 +1,6 @@
 <?php
 $webPath = "../";
-$pageID = "blogthird-sample-article";
+$pageID = "blog_third-sample-article";
 /*echo 'test $pageID: ' . $pageID . '<br>';
 echo 'test $webPath: ' . $webPath;*/
 ?>

@@ -85,12 +85,16 @@ module.exports = function (grunt) {
          */
         var arr = srcpath.split('/');
         var string = '';
-        //console.log('11111 arr: ', arr);
+        console.log('11111 arr: ', arr);
         for (var i = 2; i < arr.length; i++) {
-            string += arr[i];
+            if (arr.length != i + 1) {
+                string += arr[i] + '_';
+            } else {
+                string += arr[i];
+            }
+
         }
-        //TODO: remove .php from string
-        //console.log('22222 string: ', string);
+        console.log('22222 string: ', string);
 
         return string.replace(/.php/, '');
     }
@@ -310,7 +314,7 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
-    grunt.registerTask('dist', [
+    grunt.registerTask('dist', 'GRUNT Running default task.', [
         'php:tempServer',
         'clean:dist',
         'sass:' + path,

@@ -1,8 +1,8 @@
 <?php
 $webPath = "../";
-$pageID = "blogthis-is-sample-article";
-echo 'test $pageID: ' . $pageID . '<br>';
-echo 'test $webPath: ' . $webPath;
+$pageID = "blog_this-is-sample-article";
+/*echo 'test $pageID: ' . $pageID . '<br>';
+echo 'test $webPath: ' . $webPath;*/
 ?>
 <!DOCTYPE html>
 <html lang="en">

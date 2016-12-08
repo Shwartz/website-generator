@@ -1,8 +1,8 @@
 <?php
 $webPath = "@@path@@";
 $pageID = "@@pageID@@";
-echo 'test $pageID: ' . $pageID . '<br>';
-echo 'test $webPath: ' . $webPath;
+/*echo 'test $pageID: ' . $pageID . '<br>';
+echo 'test $webPath: ' . $webPath;*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
