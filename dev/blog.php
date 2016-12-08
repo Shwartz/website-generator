@@ -5,11 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Shvarcs web notes</title>
+	<?php include 'inc/_meta.php'; ?>
 	<link rel="stylesheet" href="css/styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<meta name="description" content="">
+	<title>Demo website</title>
 </head>
 <body>
 <div id="wrap">

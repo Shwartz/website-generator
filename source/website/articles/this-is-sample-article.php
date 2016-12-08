@@ -7,11 +7,10 @@ echo 'test $webPath: ' . $webPath;*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>this is sample article title</title>
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<?php include '../inc/_meta.php'; ?>
 	<link rel="stylesheet" href="@styles@">
+	<meta name="description" content="">
+	<title>this is sample article title</title>
 </head>
 <body>
 <div id="wrap">
