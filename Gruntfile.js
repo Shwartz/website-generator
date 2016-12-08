@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     grunt.log.writeln('\nFLAGS : ' + grunt.option.flags());
 
     var path = grunt.cli.tasks[0] || 'dev'; //getting global task, not --target
-    console.log('Grunt current task: ' + path);
+    //console.log('Grunt current task: ' + path);
 
     //var pathToLocalWeb = settings;
     //var pathToLocalWeb = 'http://generator.local/';
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
             obj[arrPages[i]] = arrPages[i];
 
         }
-        console.log('obj: ', obj);
+        //console.log('obj: ', obj);
         return obj;
     }
 
@@ -85,12 +85,12 @@ module.exports = function (grunt) {
          */
         var arr = srcpath.split('/');
         var string = '';
-        console.log('11111 arr: ', arr);
+        //console.log('11111 arr: ', arr);
         for (var i = 2; i < arr.length; i++) {
             string += arr[i];
         }
         //TODO: remove .php from string
-        console.log('22222 string: ', string);
+        //console.log('22222 string: ', string);
 
         return string.replace(/.php/, '');
     }
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
                 dest: 'dev/',
                 options: {
                     process: function (content, srcpath) {
-                        console.log('111: srcpath: ', srcpath);
+                        //console.log('111: srcpath: ', srcpath);
                         content = content.replace(/@styles@/, createPath(srcpath, 'css/styles.css'));
                         content = content.replace(/@@path@@/, createPath(srcpath, ''));
                         content = content.replace(/@@pageID@@/, pageID(srcpath));
@@ -264,7 +264,7 @@ module.exports = function (grunt) {
 
 
     grunt.task.registerTask('generateWebsite', 'description', function () {
-        console.log('Generating website');
+        //console.log('Generating website');
 
         var tasks = [];
         var src = ['_temp/**/*.php', '!_temp/inc/**'];
