@@ -37,10 +37,11 @@ define(
 					$oldContainer = $(this.oldContainer),
 					$oldContent = $oldContainer.find('.barba-go'),
 
-					removeAnimationTime = 180,
-					addAnimationTime = 180,
+					removeAnimationTime = 400,
+					addAnimationTime = 200,
 
-					leftW = $oldContent[0].offsetLeft;
+					leftW = $($oldContent[0]).find('.row')[0].offsetLeft;
+				console.log('leftW: ', leftW);
 
 				//------- Removing old container
 				$oldContainer.addClass('remove3D');
@@ -50,7 +51,7 @@ define(
 					position: 'relative',
 					transition: 'opacity ' + removeAnimationTime + 'ms ease-in-out, '
 					+ 'transform ' + removeAnimationTime + 'ms ease-in-out',
-					transform: 'scale(0.99)',
+					transform: 'translate3d(200px,200px,100px)',
 					transformOrigin: '50% 0'
 				});
 				setTimeout(function () {
