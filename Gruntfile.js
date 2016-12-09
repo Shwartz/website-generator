@@ -220,6 +220,14 @@ module.exports = function (grunt) {
                     open: false,
                     base: ''
                 }
+            },
+            dist: {
+                options: {
+                    port: 5020,
+                    keepalive: true,
+                    open: true,
+                    base: 'dist'
+                }
             }
         },
         minifyHtml: {

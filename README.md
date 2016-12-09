@@ -23,6 +23,8 @@ There are few you can use commands:
     - Watcher for development environment, whatever you change in `/source/` is passed to `/dev/`
  - `$ grunt dist`
     - Deletes all the content in `/dist/` , minify all files, adds into this folder. Ready to upload to your server
+ - `$ grunt php:dist`
+    - Start Dist php server with base `/dist/` on `http://127.0.0.1:5020/` 
  
 
 ### Output

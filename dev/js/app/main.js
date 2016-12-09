@@ -56,6 +56,7 @@ define(
 					transform: 'translate3d(200px,200px,100px)',
 					transformOrigin: '50% 0'
 				});
+
 				setTimeout(function () {
 					//this.done() removes old content
 					_this.done();
