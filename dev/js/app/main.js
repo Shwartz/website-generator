@@ -7,6 +7,7 @@ define(
 				 Barba,
 				 entryPoint) {
 		//console.log("1 F:main.js", $, Barba);
+		"use strict";
 
 		Barba.Pjax.start();
 
@@ -29,8 +30,9 @@ define(
 			},
 
 			addNew: function () {
-				//console.log('addNew');
+				// console.log('addNew');
 				var _this = this,
+					$wrap = $('#wrap'),
 					$newContainer = $(this.newContainer),
 					$newContent = $newContainer.find('.barba-go'),
 
@@ -39,10 +41,9 @@ define(
 
 					removeAnimationTime = 400, //starts immediately and this is transition time
 					addAnimationTime = 200, //start animation for new content after this amount of ms
-					newAnimationTransitionTime = 300, //transition time for new content
+					newAnimationTransitionTime = 200, //transition time for new content
 
 					leftW = $($oldContent[0]).find('.row')[0].offsetLeft;
-				console.log('leftW: ', leftW);
 
 				//------- Removing old container
 				$oldContainer.addClass('remove3D');
@@ -73,41 +74,53 @@ define(
 					visibility: 'visible'
 				}).addClass('add3D');
 
+				function fixContentWidth() {
+					// on mob size new content is wider then screen and content flickering
+					// setting max size while animation is happening to remove problem
+					var contentW = parseInt($newContent.width());
+					var wrapW = parseInt($wrap.width());
+
+					if (contentW > wrapW) $newContent[0].style.width = wrapW + 'px';
+				}
+
 				// new content first appearance, place to adjust animations
 				function showNew_step1() {
-					//hiding new content, this removes flickering of contents on mob view
-					//console.log('step 1');
+					// hiding new content, this removes flickering of contents on mob view
+					// console.log('step 1');
 					$newContent.css({
 						position: 'absolute',
 						top: '50px',
 						left: leftW + 'px',
-						opacity: 0,
-						transform: 'scale(0.99)',
+						opacity: 0.1,
+						/*transform: 'scale(0.99)',*/
 						transformOrigin: '50% 0'
 					});
+
+					fixContentWidth();
 				}
 
-				//new content animation style
+				// new content animation style
 				function showNew_step2() {
 					//console.log('step 2');
 					$newContent.css({
 						opacity: 1,
-						transform: 'scale(1)',
+						/*transform: 'scale(1)',*/
 						transition: 'opacity ' + newAnimationTransitionTime + 'ms ease-in-out, transform ' + newAnimationTransitionTime + 'ms ease-in-out'
 					});
 					document.body.scrollTop = 0; //Long pages has to be scroll up
 				}
 
 				function showNew_step3() {
-					//console.log('step 3');
+					// console.log('step 3');
 					$newContent.css({
 						position: 'relative',
 						top: 0,
-						left: ''
+						left: '',
+						width: 'inherit'
 					});
 				}
 
-				//Animate and add new content
+				// Animate and add new content
 				showNew_step1();
 
 				setTimeout(function () {
@@ -130,13 +143,13 @@ define(
 		};
 
 		Barba.Dispatcher.on('linkClicked', function (e) {
-			//your listener
+			// your listener
 			e.style.opacity = 0.5;
-			//console.log('link clicked');
+			// console.log('link clicked');
 		});
 		Barba.Dispatcher.on('newPageReady', function () {
-			//your listener
-			//console.log('new page ready');
+			// your listener
+			// console.log('new page ready');
 		});
 
 		// First load we run here
