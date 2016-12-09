@@ -37,8 +37,9 @@ define(
 					$oldContainer = $(this.oldContainer),
 					$oldContent = $oldContainer.find('.barba-go'),
 
-					removeAnimationTime = 400,
-					addAnimationTime = 200,
+					removeAnimationTime = 400, //starts immediately and this is transition time
+					addAnimationTime = 200, //start animation for new content after this amount of ms
+					newAnimationTransitionTime = 300, //transition time for new content
 
 					leftW = $($oldContent[0]).find('.row')[0].offsetLeft;
 				console.log('leftW: ', leftW);
@@ -46,6 +47,7 @@ define(
 				//------- Removing old container
 				$oldContainer.addClass('remove3D');
 
+				// place to make your own transition methods
 				$oldContent.css({
 					opacity: 0,
 					position: 'relative',
@@ -70,6 +72,7 @@ define(
 					visibility: 'visible'
 				}).addClass('add3D');
 
+				// new content first appearance, place to adjust animations
 				function showNew_step1() {
 					//hiding new content, this removes flickering of contents on mob view
 					//console.log('step 1');
@@ -83,19 +86,19 @@ define(
 					});
 				}
 
+				//new content animation style
 				function showNew_step2() {
 					//console.log('step 2');
 					$newContent.css({
 						opacity: 1,
 						transform: 'scale(1)',
-						transition: 'opacity ' + addAnimationTime + 'ms ease-in-out, transform ' + addAnimationTime + 'ms ease-in-out'
+						transition: 'opacity ' + newAnimationTransitionTime + 'ms ease-in-out, transform ' + newAnimationTransitionTime + 'ms ease-in-out'
 					});
 					document.body.scrollTop = 0; //Long pages has to be scroll up
 				}
 
 				function showNew_step3() {
 					//console.log('step 3');
-
 					$newContent.css({
 						position: 'relative',
 						top: 0,
