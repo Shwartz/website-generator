@@ -1,0 +1,16 @@
+.center {
+	text-align: center;
+}
+
+.clearfix {
+	width: 100%;
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}

@@ -411,6 +411,24 @@ th {
   padding: 0;
 }
 
+.center {
+  text-align: center;
+}
+
+.clearfix, .barba-go {
+  width: 100%;
+  *zoom: 1;
+}
+
+.clearfix:before, .barba-go:before, .clearfix:after, .barba-go:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after, .barba-go:after {
+  clear: both;
+}
+
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
 /**
  * prism.js default theme for JavaScript, CSS and HTML

@@ -20,6 +20,7 @@ Tags:         	black, white
 @import 'susy/susy';
 // External libraries and frameworks
 @import 'helper/normalize';
+@import 'helper/common';
 @import 'vendor/prism';
 
 //Themes own styles here
@@ -55,6 +56,10 @@ img {max-width: 100%;}
     bottom: 0;
     width: 100%;
     height: 100%;
+}
+
+.barba-go {
+    @extend .clearfix;
 }
 
 .add3D {
