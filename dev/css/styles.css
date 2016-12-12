@@ -10,6 +10,55 @@ License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Tags:         	black, white
 */
+/* BREAKPOINTS */
+.white {
+  color: #fff;
+}
+
+/* BREAKPOINTS */
+h1, h1 a, h2, h2 a, h3, nav.main a {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h1 a {
+  border-bottom: 1px solid inherit;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2.2em;
+}
+
+h2 a {
+  border-bottom: 1px solid #319e91;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h1, h2, h3, p {
+  color: #444;
+}
+
+p {
+  line-height: 1.4em;
+}
+
+a {
+  color: #319e91;
+  transition: 300ms color;
+}
+
+a:hover {
+  color: #8dccc4;
+}
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -429,6 +478,12 @@ th {
   clear: both;
 }
 
+.date {
+  color: #999;
+  text-align: right;
+  font-style: italic;
+}
+
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
@@ -571,55 +626,6 @@ pre {
   margin: .5em 0;
   overflow: auto;
   background: #f5f2f0;
-}
-
-/* BREAKPOINTS */
-.white {
-  color: #fff;
-}
-
-/* BREAKPOINTS */
-h1, h1 a, h2, h2 a, h3, nav.main a {
-  font-family: 'Raleway', sans-serif;
-}
-
-h1 {
-  font-size: 2.6em;
-}
-
-h1 a {
-  border-bottom: 1px solid inherit;
-  text-decoration: none;
-}
-
-h2 {
-  font-size: 2.2em;
-}
-
-h2 a {
-  border-bottom: 1px solid #319e91;
-  text-decoration: none;
-}
-
-h3 {
-  font-size: 2em;
-}
-
-h1, h2, h3, p {
-  color: #444;
-}
-
-p {
-  line-height: 1.4em;
-}
-
-a {
-  color: #319e91;
-  transition: 300ms color;
-}
-
-a:hover {
-  color: #8dccc4;
 }
 
 .mixin1 {

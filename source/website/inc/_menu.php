@@ -36,6 +36,9 @@ function currentPage($id, $pageID)
             <li<?php echo currentPage('blog', $pageID); ?>>
                 <a href="<?php echo $webPath; ?>blog.php">Blog</a>
             </li>
+            <li<?php echo currentPage('styleguide', $pageID); ?>>
+                <a href="<?php echo $webPath; ?>styleguide.php">Styleguide</a>
+            </li>
         </ul>
     </nav>
 </header>
