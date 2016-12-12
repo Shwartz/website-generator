@@ -41,9 +41,7 @@ define(
 
 					removeAnimationTime = 400, //starts immediately and this is transition time
 					addAnimationTime = 200, //start animation for new content after this amount of ms
-					newAnimationTransitionTime = 200, //transition time for new content
-
-					leftW = $($oldContent[0]).find('.row')[0].offsetLeft;
+					newAnimationTransitionTime = 200; //transition time for new content
 
 				//------- Removing old container
 				$oldContainer.addClass('remove3D');
@@ -90,7 +88,6 @@ define(
 					$newContent.css({
 						position: 'absolute',
 						top: '50px',
-						left: leftW + 'px',
 						opacity: 0.1,
 						/*transform: 'scale(0.99)',*/
 						transformOrigin: '50% 0'

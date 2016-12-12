@@ -323,7 +323,8 @@ module.exports = function (grunt) {
         'copy:phpAll',
         'copy:jsAll',
         'copy:assetsDev',
-        'watch'
+        'php:server',
+        'watch',
     ]);
 
     grunt.registerTask('dist', 'GRUNT Running default task.', [
@@ -335,6 +336,7 @@ module.exports = function (grunt) {
         'requirejs:dist',
         'generateWebsite',
         'http',
-        'minifyHtml:dist'
+        'minifyHtml:dist',
+        'php:dist',
     ]);
 };
