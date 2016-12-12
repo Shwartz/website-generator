@@ -17,14 +17,17 @@ Open your Terminal (console) and CD to /app/
 There are few you can use commands:
 
  - `$ grunt php:server`
-    - Start php server and open browser `http://127.0.0.1:5000/`
-    - Change url in browser: `http://127.0.0.1:5000/` - for development environment
+    
  - `$ grunt dev`
+    - Deletes all the content in `/dev/` directory and re-builds it from /source/ dir.
+    Never update /dev/ as it will be deleted and re-build
     - Watcher for development environment, whatever you change in `/source/` is passed to `/dev/`
+    - This will start server and open TAB `http://127.0.0.1:5000/`
  - `$ grunt dist`
     - Deletes all the content in `/dist/` , minify all files, adds into this folder. Ready to upload to your server
- - `$ grunt php:dist`
-    - Start Production test server with base `/dist/` on `http://127.0.0.1:5020/` 
+    - This command will start server and you can open TAB `http://127.0.0.1:5020/` and test if all looks good before
+    sending to your server
+    - Note: same like with `/dev/` directory, don't update `/dist/` directly as all your changes will be removed next time you do this task. Make all your changes only in `/source/` directory
  
 
 ### Output
