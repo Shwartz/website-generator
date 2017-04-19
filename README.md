@@ -14,7 +14,7 @@ Converted all web into relative paths, no needs for specific settings at moment
 
 ### Grunt
 Open your Terminal (console) and CD to /app/
-There are few you can use commands:
+There are few commands you can use:
 
  - `$ grunt php:server`
     
